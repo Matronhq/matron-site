@@ -1,0 +1,67 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  html,body { margin:0; padding:0; background:#faf9f3; }
+  .term {
+    width: 1520px; box-sizing: border-box; margin: 0;
+    background: #16181d; overflow: hidden;
+    font-family: "SF Mono", ui-monospace, Menlo, monospace;
+  }
+  .bar { display:flex; align-items:center; gap:12px; padding: 18px 22px; background:#22252c; }
+  .dot { width:18px; height:18px; border-radius:50%; }
+  .r { background:#ff5f57; } .y { background:#febc2e; } .g { background:#28c840; }
+  .title { flex:1; text-align:center; color:#9aa0a6; font-size:20px; margin-right:66px; }
+  pre { margin:0; padding: 28px 34px 34px; font-size:22px; line-height:1.52; color:#d7dae0; white-space:pre; }
+  .p  { color:#8ab4f8; }
+  .b  { color:#fff; font-weight:700; }
+  .ok { color:#4fce65; }
+  .dim{ color:#7a7f87; }
+</style></head><body>
+<div class="term">
+  <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">root@devbox: /opt/dev-boxer</span></div>
+<pre><span class="p">$</span> curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash
+
+<span class="b">============================================================</span>
+<span class="b">  Plan</span>
+<span class="b">============================================================</span>
+01  security
+02  users
+04  docker
+05  dev-tools
+06  browsers
+07  claude
+08  matrix-bridge
+09  cloudflare
+10  desktop-apps
+11  hello-world
+
+<span class="b">============================================================</span>
+<span class="b">  Security hardening</span>
+<span class="b">============================================================</span>
+Configuring SSH (sshd restart deferred until users have keys)
+<span class="ok">  ✓ SSH config deployed (port 2222, key-only, no root login)</span>
+Configuring firewall
+<span class="ok">  ✓ UFW enabled (deny incoming, allow SSH on 2222)</span>
+Configuring fail2ban
+<span class="ok">  ✓ fail2ban configured (SSH on 2222, 6 retries, 5-min ban)</span>
+Configuring automatic updates
+<span class="ok">  ✓ Unattended-upgrades configured (security + regular, reboot at 03:00)</span>
+<span class="ok">  ✓ Security hardening complete</span>
+
+<span class="b">============================================================</span>
+<span class="b">  Claude Code</span>
+<span class="b">============================================================</span>
+Installing Claude Code CLI
+<span class="ok">  ✓ Claude Code CLI installed</span>
+<span class="ok">  ✓ ~/.local/bin on PATH for bash + zsh (interactive + non-interactive)</span>
+<span class="ok">  ✓ Claude settings.json written (cleanupPeriodDays: 7)</span>
+Registering Anthropic plugins marketplace
+<span class="ok">  ✓ Claude Code setup complete</span>
+
+<span class="b">============================================================</span>
+<span class="b">  Cloudflare Tunnel</span>
+<span class="b">============================================================</span>
+Installing cloudflared
+<span class="ok">  ✓ Cloudflare Tunnel setup complete</span>
+<span class="dim">  … 7 more modules</span></pre>
+</div>
+</body></html>

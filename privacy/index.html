@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Matron</title>
+<meta name="description" content="Matron's privacy policy: the app talks only to a server you run yourself. We don't collect your data.">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <img src="/assets/icon-256.png" alt="" width="36" height="36">
+    <a class="brand" href="/">matron</a>
+    <nav class="main">
+      <a href="/privacy/">Privacy</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main class="prose">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective date: 21 July 2026</p>
+
+    <p>Matron is a client for a coding agent that runs on your own computer. The short version: <strong>your data goes to a server you run, not to us.</strong> We designed Matron this way on purpose — conversations with a coding agent contain your code, your files, and your ideas, and none of that is ours to hold.</p>
+
+    <h2>Where your data goes</h2>
+    <p>Matron talks to a Matron journal server. You choose that server when you sign in, and you (or your team) operate it — we do not run a server that stores your conversations, and the app has no server of ours to default to. Everything the app transmits goes to the server you configured:</p>
+    <ul>
+      <li>Your account name and sign-in credentials, used by your server to authenticate you.</li>
+      <li>Your messages to and from the agent, including conversation history.</li>
+      <li>Attachments you send: photos, files, and voice notes.</li>
+      <li>A device token, if your server is set up to send push notifications (see <a href="#push">Push notifications</a> below).</li>
+    </ul>
+    <p>The operator of that server is whoever runs it — you, or whoever gave you your account. Their handling of this data is under their control, not ours.</p>
+
+    <h2>What we receive</h2>
+    <p>With two narrow exceptions — the push-notification relay and the device-linking relay described below — nothing. Matron has no analytics, no crash-reporting service, no advertising identifiers, and no tracking of any kind. We do not receive, store, or process your conversations, files, credentials, or usage data.</p>
+
+    <h2 id="push">Push notifications</h2>
+    <p>Delivering an Apple push notification requires credentials tied to the app, which self-hosted servers don't have. So, if your journal server has push enabled, it sends each notification through a relay we operate (<span style="font-family:var(--mono)">push.matron.chat</span>), which forwards it to Apple.</p>
+    <p>The relay is content-blind by design — the request format has no field for message text, sender names, or conversation content. A push request contains only:</p>
+    <ul>
+      <li>Your device's Apple push token (issued by Apple for this purpose; it identifies the app on your device, not you).</li>
+      <li>A category: your agent needs you, a session finished, new activity, or a silent wake-up.</li>
+      <li>An unread badge count, and an opaque conversation identifier used only so notifications group correctly.</li>
+    </ul>
+    <p>The relay turns the category into a fixed phrase (for example, &ldquo;Your agent needs you&rdquo;), hands it to Apple, and forgets it: requests are not stored, and logs never contain request bodies or full tokens. What your agent actually said appears only when you open the app and it syncs from your own server.</p>
+
+    <h2 id="link">Linking a new device</h2>
+    <p>When you sign in a new device by scanning a QR code shown on a device that's already signed in, the two devices exchange your server address and a one-time link code through the same relay (<span style="font-family:var(--mono)">push.matron.chat</span>). As with push, the relay is content-blind by design: all that passes through it is a single opaque, encrypted box. The key that unlocks that box exists only inside the QR code you scan — it never reaches the relay — so the relay cannot read your server address, the link code, or anything else about you.</p>
+    <p>The box is held in memory for a few minutes at most, is never written to disk, and is never logged; it is discarded as soon as linking finishes or the attempt times out.</p>
+
+    <h2>What stays on your device</h2>
+    <p>Your conversation history is cached locally so the app works quickly and offline. The local search index is stored with file protection enabled. Sign-in credentials and recovery keys are stored in the system Keychain. Settings such as your appearance choice and recently used folders are stored in local app preferences and never leave the device.</p>
+
+    <h2>Agent access to your computer</h2>
+    <p>Matron is a remote control for an agent running on your own machine. Anything you ask that agent to do — read files, run commands, change code — happens on your computer, under your control. Command output and file contents the agent sends back into a conversation are stored on your journal server with that conversation, as described above.</p>
+
+    <h2>Voice notes and photos</h2>
+    <p>Microphone access is used only to record a voice note when you choose to record one. Photo library access is used only to attach a photo you pick. Neither is accessed in the background, and neither is used for any purpose other than sending the attachment you selected — to your own server.</p>
+
+    <h2>Retention and deletion</h2>
+    <p>Because your data lives on your own server and your own devices, retention is in your hands: delete conversations from your server, or delete the app to remove the local cache. We hold nothing to delete on our side.</p>
+
+    <h2>Your rights</h2>
+    <p>Depending on where you live, you may have rights to access, correct, export, or delete personal data. Since we hold none of your data, these rights are exercised against the operator of your journal server. If you believe we hold anything about you, contact <a href="mailto:support@matron.chat">support@matron.chat</a> and we'll tell you (the expected answer is that we don't).</p>
+
+    <h2>Children</h2>
+    <p>Matron is not directed at children and is not intended for use by anyone under 13.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes materially — for example, if we ever add another optional service operated by us — the new version will be posted here with an updated effective date, and it will describe exactly what that service sees.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:support@matron.chat">support@matron.chat</a></p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Matron</span>
+    <a href="/privacy/">Privacy policy</a>
+    <a href="/support/">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

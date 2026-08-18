@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android</title>
+<meta name="description" content="Matron is an open-source remote control for Claude Code: chat with the agents on your own machines from native iPhone, Mac and Android apps, synced through a small server you host. Codex works too. New to remote agents? dev-boxer builds you an agent box from a fresh VPS in one command.">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android">
+<meta property="og:description" content="The open-source remote control for Claude Code: chat with the agents on your own machines from native iPhone, Mac and Android apps — self-hosted, on the subscription you already pay for.">
+<meta property="og:image" content="https://matron.chat/assets/og-image.png">
+<meta property="og:url" content="https://matron.chat/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <img src="/assets/icon-256.png" alt="" width="36" height="36">
+    <a class="brand" href="/">matron</a>
+    <nav class="main">
+      <a href="#features" class="hide-narrow">Features</a>
+      <a href="#how" class="hide-narrow">How it works</a>
+      <a href="/dev-boxer/" class="hide-narrow">dev-boxer</a>
+      <a href="https://github.com/Matronhq">GitHub</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1>The open-source remote control for <span class="mono">Claude Code</span></h1>
+      <p class="lede">Matron turns the <strong>Claude Code</strong> sessions on your machines into live chats — in native apps on Mac, iPhone and Android, and a desktop app on Windows and Linux. Everything syncs through a small server you host, so the session you start at your desk is already on your phone when you stand up. Running <strong>Codex</strong>? That works too.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#beta">Join the beta</a>
+        <a class="btn ghost" href="#how">How it works</a>
+        <span class="cta-note">iPhone, Mac, Android, Windows and Linux &middot; open source &middot; beta</span>
+      </div>
+    </div>
+
+    <div class="duo">
+      <figure class="shot mac">
+        <img src="/assets/screens/mac-01-handoff.png" width="1280" height="800"
+             alt="A Matron conversation open in the Mac app: a failing test card, a diff, the passing rerun, and a PR prompt">
+      </figure>
+      <figure class="shot phone">
+        <img src="/assets/screens/ios-02-agent-chat.png" width="660" height="1434"
+             alt="The exact same conversation open in Matron on iPhone, showing identical messages">
+      </figure>
+    </div>
+
+  </div>
+
+  <section id="parts">
+    <div class="wrap">
+      <h2>What Matron is</h2>
+      <p class="section-lede">Four small open-source parts that snap together. One cheap VPS can run the lot — and it&rsquo;s all on <a href="https://github.com/Matronhq">GitHub</a> to read, run and fork.</p>
+      <div class="grid four">
+        <div class="card"><span class="glyph">&#9673;</span><h3>The apps</h3><p>Native <a href="https://github.com/Matronhq/matron-apple">Mac and iPhone</a> and <a href="https://github.com/Matronhq/matron-android">Android</a> clients, an <a href="https://github.com/Matronhq/matron-desktop">Electron app</a> for Windows and Linux, and a <a href="https://github.com/Matronhq/matron-web">web client</a>.</p></div>
+        <div class="card"><span class="glyph">&#9636;</span><h3><a href="https://github.com/Matronhq/matron-journal">matron-journal</a></h3><p>The sync server you host — a few thousand lines of Node on SQLite. Every device reads the same conversations from it, live.</p></div>
+        <div class="card"><span class="glyph">&#10231;</span><h3><a href="https://github.com/Matronhq/matron-bridge">matron-bridge</a></h3><p>Runs beside Claude Code or Codex on each dev machine and publishes its sessions to your journal.</p></div>
+        <div class="card"><span class="glyph">&#9635;</span><h3><a href="/dev-boxer/">dev-boxer</a></h3><p>No dev machine? One command turns a fresh Ubuntu VPS into a hardened, always-on agent box.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="paths" class="alt">
+    <div class="wrap">
+      <h2>Who it&rsquo;s for</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>For those new to remote agents&hellip;</h3>
+          <p>Everything here is open source and free — the only bill is a cheap VPS, and Claude Code runs on the allowance already included in your Claude subscription. One <a href="/dev-boxer/">dev-boxer</a> command turns that VPS into an always-on agent box — Claude Code installed, locked down, reachable from everywhere. Chat with it from your desktop or your phone; every device shows the same conversation, so handoff is instant.</p>
+          <p><a href="/dev-boxer/">Set up your first agent box &rarr;</a></p>
+        </div>
+        <div class="card">
+          <h3>&hellip;and those already running Claude Code on every machine</h3>
+          <p>Retire the SSH-from-your-phone routine. Every machine&rsquo;s sessions sit together in one smooth native app — live tool calls and diffs instead of a terminal squeezed onto a phone screen — with the full feature set and then some: context and usage meters, full-text search, slash commands, push notifications when an agent needs you.</p>
+          <p><a href="#features">See what the apps can do &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Everything your agent does, live</h2>
+      <p class="section-lede">Matron shows the conversation as it happens — tool calls, terminal output, diffs and test runs stream in, and when your agent needs a decision it lands as tappable options: approve, refuse, or type a reply.</p>
+
+      <div class="showcase">
+        <div class="feature">
+          <figure class="shot">
+            <img src="/assets/screens/ios-03-diff-chat.png" width="660" height="1434" loading="lazy"
+                 alt="A Matron chat on iPhone: a dark-mode request, the agent&rsquo;s Read tool call, a two-line diff of SettingsView.swift, and its reply that the fix is done">
+          </figure>
+          <div>
+            <h3>Every tool call, properly rendered</h3>
+            <p>Reads, edits and test runs land as cards you can expand for their arguments and output; diffs are colored line by line, code blocks come formatted. The detail is there when you want it — and folded away when you don&rsquo;t.</p>
+          </div>
+        </div>
+        <div class="feature flip">
+          <figure class="shot">
+            <img src="/assets/screens/ios-04-new-chat-agents.png" width="660" height="1434" loading="lazy"
+                 alt="Matron's machine picker: two agents, homelab and mac-studio, both showing as connected">
+          </figure>
+          <div>
+            <h3>Start sessions from your phone</h3>
+            <p>A VPS in the cloud, the homelab, the desktop at work — every machine running an agent shows up in one app, with live connection state. Pick a box, pick one of its recent folders (or type a path), and a new session starts right there.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <figure class="shot">
+            <img src="/assets/screens/ios-06-session-status.png" width="660" height="1434" loading="lazy"
+                 alt="Matron's session sheet: context 97k of 200k tokens, session and weekly rate-limit bars with reset times, the model name, and a Compact button">
+          </figure>
+          <div>
+            <h3>Know where your allowance stands</h3>
+            <p>Every session shows its model, context-window fill, and your session and weekly rate limits with reset times — live. Running long? Compact the conversation with one tap, or use slash commands to do it by typing — along with switching models or agents and starting fresh chats.</p>
+          </div>
+        </div>
+
+        <div class="feature flip">
+          <figure class="shot">
+            <img src="/assets/screens/ios-07-subchat.png" width="660" height="1434" loading="lazy"
+                 alt="A Matron chat with a running subagent pinned at the top — 'Explore: auth call sites' with a progress spinner — above the main conversation and a code diff">
+          </figure>
+          <div>
+            <h3>Subagents get their own threads</h3>
+            <p>When your agent fans out helpers, each one becomes a sub-chat you can open and follow. The parent chat pins what&rsquo;s still running, so nothing finishes silently.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid" style="margin-top:56px">
+        <div class="card"><span class="glyph">&#128247;</span><h3>Send anything</h3><p>Photos, files, and voice notes go in; screenshots and images from your agent come back inline.</p></div>
+        <div class="card"><span class="glyph">&#128269;</span><h3>Search everything</h3><p>Full-text search across every session on every machine — find that conversation from last Tuesday in seconds.</p></div>
+        <div class="card"><span class="glyph">&#127991;</span><h3>Chats name themselves</h3><p>Every session gets an automatic title and a live summary of what the agent last did — the chat list reads like a status board.</p></div>
+        <div class="card"><span class="glyph">&#9201;</span><h3>Queue it, schedule it</h3><p>Type while the agent is mid-task and your messages deliver in order when it&rsquo;s ready — or put one on a timer to land later.</p></div>
+        <div class="card"><span class="glyph">&#128272;</span><h3>Secrets stay out of the chat</h3><p>Swap credentials in both directions through one-time secure forms and viewer links — and agents hand files back the same way. Nothing sensitive sits in the history.</p></div>
+        <div class="card"><span class="glyph">&#128276;</span><h3>Push notifications</h3><p>Get pinged the moment your agent needs you or finishes the job.</p></div>
+        <div class="card"><span class="glyph">&#9673;</span><h3>Native on iPhone, Mac and Android</h3><p>Smooth, fast, and light — custom-designed native apps on all three. Windows and Linux are covered by <a href="https://github.com/Matronhq/matron-desktop">matron-desktop</a> (Electron).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="alt">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="section-lede">Matron is a remote control, not a cloud IDE — your agents, your code, and your conversations all stay on your own computers, and we never see any of it. Three pieces make it run, and one box can happily host all of them. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
+      <div class="steps">
+        <div class="step"><h3>Run the journal server</h3><p>On a $5 VPS (Hetzner and OVH both work well), a box at home, or the same machine your agents run on: <code>npm install &amp;&amp; npm start</code> in <a href="https://github.com/Matronhq/matron-journal">matron-journal</a>, then create your user and an agent token with the bundled <code>matron-admin</code> CLI. Put TLS in front — a reverse proxy or a Cloudflare Tunnel both work.</p></div>
+        <div class="step"><h3>Connect the bridge</h3><p>On each dev machine, clone <a href="https://github.com/Matronhq/matron-bridge">matron-bridge</a>, point <code>.env</code> at your journal with the agent token, and <code>npm start</code>. It drives the Claude Code or Codex CLI you already have installed and signed in.</p></div>
+        <div class="step"><h3>Sign in from the apps</h3><p>Enter your journal URL and username in Matron on iPhone, Mac or Android — then link every other device with a QR code or a sign-in link, no retyping. Sessions appear the moment a bridge publishes them.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="devboxer">
+    <div class="wrap">
+      <h2>No server yet? Meet dev-boxer</h2>
+      <p class="section-lede">One command on a fresh Ubuntu 24.04 box — a $5 VPS or a spare machine at home — builds a hardened, always-on agent machine: Claude Code, the bridge, a full dev environment, reachable from anywhere.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="/dev-boxer/">How dev-boxer works</a>
+        <a class="btn ghost" href="https://github.com/Matronhq/dev-boxer">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="beta" class="alt">
+    <div class="wrap">
+      <h2>Join the beta</h2>
+      <p class="section-lede">Matron is in beta on every platform: iPhone and Mac through TestFlight, Android through Play Store testing — the App Store and Play Store submissions are both in review. If you&rsquo;d like an invite, get in touch and tell us a little about your setup.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:support@matron.chat?subject=Matron%20beta">Request an invite</a>
+        <a class="btn ghost" href="/support/">Questions? Support</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Matron</span>
+    <a href="https://github.com/Matronhq">GitHub</a>
+    <a href="/privacy/">Privacy policy</a>
+    <a href="/support/">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

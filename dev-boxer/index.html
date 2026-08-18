@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dev-boxer — one command to an always-on agent box — Matron</title>
+<meta name="description" content="dev-boxer turns a fresh Ubuntu 24.04 machine — a $5 VPS or spare hardware at home — into a hardened, always-on Claude Code agent box wired into Matron, in one command.">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="dev-boxer — one command to an always-on agent box">
+<meta property="og:description" content="Turn a fresh Ubuntu 24.04 VPS — or a spare machine at home — into a hardened, always-on Claude Code agent box wired into Matron.">
+<meta property="og:image" content="https://matron.chat/assets/og-image.png">
+<meta property="og:url" content="https://matron.chat/dev-boxer/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <img src="/assets/icon-256.png" alt="" width="36" height="36">
+    <a class="brand" href="/">matron</a>
+    <nav class="main">
+      <a href="/#features" class="hide-narrow">Features</a>
+      <a href="/#how" class="hide-narrow">How it works</a>
+      <a href="https://github.com/Matronhq/dev-boxer">GitHub</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>One command to an always-on agent box</h1>
+      <p class="lede">dev-boxer takes a fresh <strong>Ubuntu 24.04</strong> machine — a $5 VPS, a spare Mac mini, even a Raspberry Pi — and builds the whole environment: Claude Code, the Matron bridge, a full set of dev tools. Hardened, reachable from anywhere, and yours.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/Matronhq/dev-boxer">Get started on GitHub</a>
+        <a class="btn ghost" href="/#beta">Join the Matron beta</a>
+      </div>
+      <figure class="shot wide" style="margin-top:44px">
+        <img src="/assets/screens/devboxer-terminal.png" width="1520" height="1212"
+             alt="dev-boxer's installer running in a terminal: the module plan, then security hardening and Claude Code setup steps completing with green check marks">
+      </figure>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>What you get</h2>
+      <div class="grid">
+        <div class="card"><span class="glyph">&#9889;</span><h3>Claude Code, always on</h3><p>Your agent lives on a persistent box, so long-running work keeps going with your laptop shut. Codex works too.</p></div>
+        <div class="card"><span class="glyph">&#10231;</span><h3>Wired into Matron</h3><p>The box runs matron-bridge — and can bundle its own matron-journal, or join one you already run. It appears in <a href="/">the apps</a> the moment setup finishes.</p></div>
+        <div class="card"><span class="glyph">&#128737;</span><h3>Hardened by default</h3><p>SSH key-only auth on a custom port, UFW firewall, fail2ban, unattended upgrades — locked down from the first boot.</p></div>
+        <div class="card"><span class="glyph">&#9729;</span><h3>Reachable, not exposed</h3><p>Bring a domain and Cloudflare Tunnel gives you HTTPS with no open ports and optional zero-trust SSO — or skip the domain entirely with plain IP and self-signed TLS.</p></div>
+        <div class="card"><span class="glyph">&#128187;</span><h3>A real desktop, optional</h3><p>XFCE over RDP, riding an SSH tunnel, for the moments a GUI beats a terminal — browsers and VS Code included.</p></div>
+        <div class="card"><span class="glyph">&#129520;</span><h3>Dev tools included</h3><p>Docker, Node.js 22, Git, Python, the GitHub CLI, Chrome and Firefox — the box is a full dev machine, not just an agent host.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>One command, eleven modules</h2>
+      <p class="section-lede">A short wizard asks for the essentials — username, SSH key, domain or no domain, where the journal lives — then eleven idempotent modules do the rest. Re-run any of them, resume from a failure, skip what you don&rsquo;t need.</p>
+      <div class="card reqs">
+        <h3>What you need</h3>
+        <ul>
+          <li>A fresh <strong>Ubuntu 24.04</strong> box with sudo access — a ~$5 VPS, a spare machine at home, or a VM (Multipass, OrbStack, Hyper-V).</li>
+          <li>An SSH key pair.</li>
+          <li>A <strong>Claude subscription</strong> for Claude Code to sign in with — it runs on the allowance your plan already includes.</li>
+          <li><strong>Domain route:</strong> a Cloudflare account with your domain on it and a zone DNS API token — plus, optionally, a one-time setup token so dev-boxer can create the tunnel and Access app for you.</li>
+          <li><strong>No domain:</strong> nothing extra — IP mode works with self-signed TLS.</li>
+          <li><strong>Optional:</strong> a GitHub fine-grained access token, so the box can clone your private repos from the first boot.</li>
+        </ul>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Run the installer</h3><p>On the fresh box, as root: <code>curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash</code></p></div>
+        <div class="step"><h3>Answer the wizard</h3><p>It prompts for everything it needs and writes the config; setup then runs end to end — security first, apps last.</p></div>
+        <div class="step"><h3>Sign in from Matron</h3><p>When it finishes, the box is publishing to your journal. Open <a href="/">Matron</a> on your phone or desktop and the new machine is there, online.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>No VPS? Use what&rsquo;s in the drawer</h2>
+      <p class="section-lede">Cloudflare Tunnel can expose a home box without port forwarding or a static IP — so an old Mac mini, a NUC, a retired laptop, or a Raspberry Pi 4 or 5 with 8&nbsp;GB runs dev-boxer just as well as a rented server. Install Ubuntu Server 24.04, run the same command, keep it plugged in.</p>
+      <div class="honesty"><strong>What it costs:</strong> dev-boxer and the whole Matron stack are open source and free. A small VPS from Hetzner or DigitalOcean is about $5 a month — or $0 on spare hardware — and Claude Code runs on the allowance already included in your Claude subscription, so there are no API bills to watch.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>The box is one half — Matron is the other</h2>
+      <p class="section-lede">dev-boxer builds the machine; the Matron apps are where you use it. Every agent session on the box becomes a chat on your Mac, iPhone and Android — synced live, wherever you are.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="/">Explore Matron</a>
+        <a class="btn ghost" href="/#beta">Join the beta</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Matron</span>
+    <a href="https://github.com/Matronhq">GitHub</a>
+    <a href="/privacy/">Privacy policy</a>
+    <a href="/support/">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>
