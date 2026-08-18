@@ -7,7 +7,7 @@
 <meta name="description" content="Get help with Matron: setup requirements, common questions, and how to contact us.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=2">
+<link rel="stylesheet" href="/style.css?v=3">
 </head>
 <body>
 
@@ -15,10 +15,15 @@
   <div class="wrap">
     <img src="/assets/icon-256.png" alt="" width="36" height="36">
     <a class="brand" href="/">matron</a>
-    <nav class="main">
+    <nav class="main" id="nav">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/dev-boxer/">dev-boxer</a>
+      <a href="https://github.com/Matronhq">GitHub</a>
       <a href="/privacy/">Privacy</a>
       <a href="/support/">Support</a>
     </nav>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
   </div>
 </header>
 
@@ -65,5 +70,21 @@
   </div>
 </footer>
 
+<script>
+var navToggle = document.querySelector('.nav-toggle');
+if (navToggle) {
+  var nav = document.getElementById('nav');
+  navToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+</script>
 </body>
 </html>

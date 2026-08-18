@@ -7,7 +7,7 @@
 <meta name="description" content="Matron is an open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, synced through a small server you host. Codex works too, and dev-boxer can build you an agent box from a fresh VPS in one command.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=2">
+<link rel="stylesheet" href="/style.css?v=3">
 <meta property="og:title" content="Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android">
 <meta property="og:description" content="The open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, self-hosted, on the subscription you already pay for.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
@@ -21,14 +21,15 @@
   <div class="wrap">
     <img src="/assets/icon-256.png" alt="" width="36" height="36">
     <a class="brand" href="/">matron</a>
-    <nav class="main">
-      <a href="#features" class="hide-narrow">Features</a>
-      <a href="#how" class="hide-narrow">How it works</a>
-      <a href="/dev-boxer/" class="hide-narrow">dev-boxer</a>
+    <nav class="main" id="nav">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="/dev-boxer/">dev-boxer</a>
       <a href="https://github.com/Matronhq">GitHub</a>
       <a href="/privacy/">Privacy</a>
       <a href="/support/">Support</a>
     </nav>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
   </div>
 </header>
 
@@ -146,6 +147,7 @@
         <div class="card"><span class="glyph">&#9201;</span><h3>Queue it, schedule it</h3><p>Type while the agent is mid-task and your messages deliver in order when it&rsquo;s ready, or put one on a timer to land later.</p></div>
         <div class="card"><span class="glyph">&#128272;</span><h3>Secrets stay out of the chat</h3><p>Swap credentials in both directions through one-time secure forms and viewer links; agents hand files back the same way. Nothing sensitive sits in the history.</p></div>
         <div class="card"><span class="glyph">&#128276;</span><h3>Push notifications</h3><p>Get pinged the moment your agent needs you or finishes the job.</p></div>
+        <div class="card"><span class="glyph">&#129309;</span><h3>Agents talk to each other</h3><p>Two sessions can pair up in a shared room to coordinate work, even across machines. Every pairing asks you first, and you can read the whole room.</p></div>
         <div class="card"><span class="glyph">&#9673;</span><h3>Native on iPhone, Mac and Android</h3><p>Fast, light apps built natively for each platform. Windows and Linux are covered by <a href="https://github.com/Matronhq/matron-desktop">matron-desktop</a> (Electron).</p></div>
       </div>
     </div>
@@ -154,7 +156,7 @@
   <section id="how" class="alt">
     <div class="wrap">
       <h2>How it works</h2>
-      <p class="section-lede">Matron is a remote control, not a cloud IDE: your code and your conversations stay on your own computers, and we never see any of them. Three pieces make it run, and one box can host all three. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
+      <p class="section-lede">Matron is a remote control, not a cloud IDE: your code and your conversations stay on your own computers. Three pieces make it run, and one box can host all three. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
       <div class="steps">
         <div class="step"><h3>Run the journal server</h3><p>On a $5 VPS (Hetzner and OVH both work well), a box at home, or the same machine your agents run on: <code>npm install &amp;&amp; npm start</code> in <a href="https://github.com/Matronhq/matron-journal">matron-journal</a>, then create your user and an agent token with the bundled <code>matron-admin</code> CLI. Put TLS in front; a reverse proxy or a Cloudflare Tunnel both work.</p></div>
         <div class="step"><h3>Connect the bridge</h3><p>On each dev machine, clone <a href="https://github.com/Matronhq/matron-bridge">matron-bridge</a>, point <code>.env</code> at your journal with the agent token, and <code>npm start</code>. It drives the Claude Code or Codex CLI you already have installed and signed in.</p></div>
@@ -196,5 +198,21 @@
   </div>
 </footer>
 
+<script>
+var navToggle = document.querySelector('.nav-toggle');
+if (navToggle) {
+  var nav = document.getElementById('nav');
+  navToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+</script>
 </body>
 </html>

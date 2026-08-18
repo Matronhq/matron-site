@@ -7,7 +7,7 @@
 <meta name="description" content="dev-boxer turns a fresh Ubuntu 24.04 machine (a $5 VPS or spare hardware at home) into a hardened, always-on Claude Code agent box wired into Matron. It takes one command.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=2">
+<link rel="stylesheet" href="/style.css?v=3">
 <meta property="og:title" content="dev-boxer — one command to an always-on agent box">
 <meta property="og:description" content="Turn a fresh Ubuntu 24.04 VPS or a spare machine at home into a hardened, always-on Claude Code agent box wired into Matron.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
@@ -21,13 +21,14 @@
   <div class="wrap">
     <img src="/assets/icon-256.png" alt="" width="36" height="36">
     <a class="brand" href="/">matron</a>
-    <nav class="main">
-      <a href="/#features" class="hide-narrow">Features</a>
-      <a href="/#how" class="hide-narrow">How it works</a>
+    <nav class="main" id="nav">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
       <a href="https://github.com/Matronhq/dev-boxer">GitHub</a>
       <a href="/privacy/">Privacy</a>
       <a href="/support/">Support</a>
     </nav>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
   </div>
 </header>
 
@@ -125,6 +126,20 @@ document.querySelectorAll('.cmdbox [data-copy]').forEach(function (btn) {
     });
   });
 });
+var navToggle = document.querySelector('.nav-toggle');
+if (navToggle) {
+  var nav = document.getElementById('nav');
+  navToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
 </script>
 </body>
 </html>
