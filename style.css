@@ -71,8 +71,35 @@ nav.main a {
 }
 nav.main a:hover { text-decoration: underline; }
 
-@media (max-width: 560px) {
-  nav.main a.hide-narrow { display: none; }
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink);
+  background: none;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  nav.main { display: none; }
+  .nav-toggle { display: block; }
+  nav.main.open {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+    padding: 4px 24px 12px;
+  }
+  nav.main.open a { padding: 11px 0; border-top: 1px solid var(--cream-dark); font-size: 16px; }
 }
 
 /* ---------- hero ---------- */
