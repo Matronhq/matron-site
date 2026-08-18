@@ -36,6 +36,12 @@
     <div class="wrap">
       <h1>One command to an always-on agent box</h1>
       <p class="lede">dev-boxer takes a fresh <strong>Ubuntu 24.04</strong> machine — a $5 VPS, a home server, even a Raspberry Pi — and builds the whole environment: Claude Code, the Matron bridge, a full set of dev tools. Hardened, reachable from anywhere, and yours.</p>
+      <div class="cmdbox">
+        <span class="prompt" aria-hidden="true">$</span>
+        <code>curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash</code>
+        <button type="button" data-copy aria-label="Copy install command">Copy</button>
+      </div>
+      <p class="cmd-note">That&rsquo;s the whole install — run it on the fresh box and answer the wizard.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://github.com/Matronhq/dev-boxer">Get started on GitHub</a>
         <a class="btn ghost" href="/#beta">Join the Matron beta</a>
@@ -77,7 +83,7 @@
         </ul>
       </div>
       <div class="steps">
-        <div class="step"><h3>Run the installer</h3><p>On the fresh box, as root: <code>curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash</code></p></div>
+        <div class="step"><h3>Run the installer</h3><p>Paste the install command from the top of this page into a shell on the fresh box — it downloads dev-boxer and starts the wizard.</p></div>
         <div class="step"><h3>Answer the wizard</h3><p>It prompts for everything it needs and writes the config; setup then runs end to end — security first, apps last.</p></div>
         <div class="step"><h3>Sign in from Matron</h3><p>When it finishes, the box is publishing to your journal. Open <a href="/">Matron</a> on your phone or desktop and the new machine is there, online.</p></div>
       </div>
@@ -87,7 +93,7 @@
   <section class="alt">
     <div class="wrap">
       <h2>No VPS? Use what&rsquo;s in the drawer</h2>
-      <p class="section-lede">Cloudflare Tunnel can expose a home box without port forwarding or a static IP — so an old Mac mini, a NUC, a retired laptop, or a Raspberry Pi 4 or 5 with 8&nbsp;GB runs dev-boxer just as well as a rented server. Install Ubuntu Server 24.04, run the same command, keep it plugged in.</p>
+      <p class="section-lede">Cloudflare Tunnel can expose a home box without port forwarding or a static IP — so a NUC, a retired laptop, or a Raspberry Pi 4 or 5 with 8&nbsp;GB runs dev-boxer just as well as a rented server. Install Ubuntu Server 24.04, run the same command, keep it plugged in.</p>
       <div class="honesty"><strong>What it costs:</strong> dev-boxer and the whole Matron stack are open source and free. A small VPS from Hetzner or DigitalOcean is about $5 a month — or $0 on spare hardware — and Claude Code runs on the allowance already included in your Claude subscription, so there are no API bills to watch.</div>
     </div>
   </section>
@@ -113,5 +119,16 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.cmdbox [data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var code = btn.parentElement.querySelector('code').textContent;
+    navigator.clipboard.writeText(code).then(function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    });
+  });
+});
+</script>
 </body>
 </html>
