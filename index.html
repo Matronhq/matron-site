@@ -97,8 +97,8 @@
       <div class="showcase">
         <div class="feature">
           <figure class="shot">
-            <img src="/assets/screens/ios-03-diff-chat.png" width="660" height="1434" loading="lazy"
-                 alt="A Matron chat on iPhone: a dark-mode request, the agent&rsquo;s Read tool call, a two-line diff of SettingsView.swift, and its reply that the fix is done">
+            <img src="/assets/screens/ios-03-diff-chat-dark.png" width="660" height="1434" loading="lazy"
+                 alt="A Matron chat on iPhone: a dark-mode bug report, a two-hunk diff of SettingsView.swift colored line by line, and the agent&rsquo;s reply that the fix is done">
           </figure>
           <div>
             <h3>Every tool call, properly rendered</h3>
@@ -107,7 +107,7 @@
         </div>
         <div class="feature flip">
           <figure class="shot">
-            <img src="/assets/screens/ios-04-new-chat-agents.png" width="660" height="1434" loading="lazy"
+            <img src="/assets/screens/ios-04-new-chat-agents-dark.png" width="660" height="1434" loading="lazy"
                  alt="Matron's machine picker: two agents, homelab and mac-studio, both showing as connected">
           </figure>
           <div>
@@ -118,8 +118,8 @@
 
         <div class="feature">
           <figure class="shot">
-            <img src="/assets/screens/ios-06-session-status.png" width="660" height="1434" loading="lazy"
-                 alt="Matron's session sheet: context 97k of 200k tokens, session and weekly rate-limit bars with reset times, the model name, and a Compact button">
+            <img src="/assets/screens/ios-06-session-status-dark.png" width="660" height="1434" loading="lazy"
+                 alt="Matron's session sheet: context 184k of 1m tokens, session and weekly rate-limit bars with reset times, the model name, and a Compact button">
           </figure>
           <div>
             <h3>Know where your allowance stands</h3>
@@ -129,12 +129,23 @@
 
         <div class="feature flip">
           <figure class="shot">
-            <img src="/assets/screens/ios-07-subchat.png" width="660" height="1434" loading="lazy"
+            <img src="/assets/screens/ios-07-subchat-dark.png" width="660" height="1434" loading="lazy"
                  alt="A Matron chat with a running subagent pinned at the top — 'Explore: auth call sites' with a progress spinner — above the main conversation and a code diff">
           </figure>
           <div>
             <h3>Subagents get their own threads</h3>
             <p>When your agent fans out helpers, each one becomes a sub-chat you can open and follow. The parent chat pins what&rsquo;s still running, so nothing finishes silently.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <figure class="shot">
+            <img src="/assets/screens/ios-08-agent-pairing-dark.png" width="660" height="1434" loading="lazy"
+                 alt="An agent chat request card in Matron: mac-studio wants to start a chat with homelab, showing the sessions on both ends, the topic, the agent&rsquo;s reasoning, and Decline and Approve buttons">
+          </figure>
+          <div>
+            <h3>Agents can talk to each other, with your say-so</h3>
+            <p>An agent can invite another box&rsquo;s session into a shared room to hand over work or have a fix verified. The request parks as a card naming who is asking, which sessions are involved, and why; nothing moves until you approve, and you can read the whole room.</p>
           </div>
         </div>
 
@@ -147,7 +158,6 @@
         <div class="card"><span class="glyph">&#9201;</span><h3>Queue it, schedule it</h3><p>Type while the agent is mid-task and your messages deliver in order when it&rsquo;s ready, or put one on a timer to land later.</p></div>
         <div class="card"><span class="glyph">&#128272;</span><h3>Secrets stay out of the chat</h3><p>Swap credentials in both directions through one-time secure forms and viewer links; agents hand files back the same way. Nothing sensitive sits in the history.</p></div>
         <div class="card"><span class="glyph">&#128276;</span><h3>Push notifications</h3><p>Get pinged the moment your agent needs you or finishes the job.</p></div>
-        <div class="card"><span class="glyph">&#129309;</span><h3>Agents talk to each other</h3><p>Two sessions can pair up in a shared room to coordinate work, even across machines. Every pairing asks you first, and you can read the whole room.</p></div>
         <div class="card"><span class="glyph">&#9673;</span><h3>Native on iPhone, Mac and Android</h3><p>Fast, light apps built natively for each platform. Windows and Linux are covered by <a href="https://github.com/Matronhq/matron-desktop">matron-desktop</a> (Electron).</p></div>
       </div>
     </div>
