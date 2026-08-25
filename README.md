@@ -52,9 +52,9 @@ directory: `/`.
 - **App Store Connect** — privacy policy URL `https://matron.chat/privacy/`,
   support URL `https://matron.chat/support/`, marketing URL
   `https://matron.chat/`.
-- **Beta CTA** — the "Join the beta" button is a `mailto:` for now. When the
-  TestFlight public link exists, swap the `href` in `index.html` (#beta
-  section and hero button).
+- **Store links** — the hero and `#download` section point at the App Store
+  (`https://apps.apple.com/app/matron/id6791565930`) and Google Play
+  (`chat.matron.android`); Windows/Linux links to the matron-desktop repo.
 
 ## Contributing
 
