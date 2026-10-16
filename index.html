@@ -7,7 +7,7 @@
 <meta name="description" content="Matron is an open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, synced through a small server you host. Codex works too, and dev-boxer can build you an agent box from a fresh VPS in one command.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=3">
+<link rel="stylesheet" href="/style.css?v=6">
 <meta property="og:title" content="Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android">
 <meta property="og:description" content="The open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, self-hosted, on the subscription you already pay for.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
@@ -57,6 +57,40 @@
     </div>
 
   </div>
+
+  <section id="coordinator" class="spot">
+    <div class="wrap">
+      <h2>Say it once. Hear back when it matters.</h2>
+      <p class="section-lede">You don&rsquo;t manage the agents. The Coordinator does.</p>
+
+      <ol class="flow">
+        <li>
+          <figure class="shot">
+            <img src="/assets/screens/fleet-dispatch-ios-dark-2x.png" width="660" height="1434"
+                 alt="The Coordinator chat in Matron on iPhone: asked to add Apple Pay to the new checkout, it replies that it has started a session on another machine, will keep track of it, and will send anything it needs to For you">
+          </figure>
+          <span class="kicker">1 &middot; Tell the Coordinator</span>
+          <p>Whenever you think of something, say it to the Coordinator.</p>
+        </li>
+        <li>
+          <figure class="shot">
+            <img src="/assets/screens/fleet-projects-ios-dark-2x.png" width="660" height="1434"
+                 alt="Matron&rsquo;s Projects screen on iPhone: the latest briefing above three projects, one needing you">
+          </figure>
+          <span class="kicker">2 &middot; It hands it to an agent</span>
+          <p>It starts the work on one of your machines and keeps track of every agent.</p>
+        </li>
+        <li>
+          <figure class="shot">
+            <img src="/assets/screens/fleet-for-you-ios-dark-2x.png" width="660" height="1434"
+                 alt="A question in Matron&rsquo;s For you list on iPhone: &lsquo;Address form is ready: merge it to staging?&rsquo; with Merge and Hold for now buttons">
+          </figure>
+          <span class="kicker">3 &middot; Answers come to For you</span>
+          <p>When an agent needs you, it lands in one list. Tap to answer. The threads are there if you want them.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
   <section id="parts">
     <div class="wrap">
@@ -157,13 +191,31 @@
         <div class="card"><span class="glyph">&#127991;</span><h3>Chats name themselves</h3><p>Every session gets an automatic title and a live summary of what the agent last did, so the chat list reads like a status board.</p></div>
         <div class="card"><span class="glyph">&#9201;</span><h3>Queue it, schedule it</h3><p>Type while the agent is mid-task and your messages deliver in order when it&rsquo;s ready, or put one on a timer to land later.</p></div>
         <div class="card"><span class="glyph">&#128272;</span><h3>Secrets stay out of the chat</h3><p>Swap credentials in both directions through one-time secure forms and viewer links; agents hand files back the same way. Nothing sensitive sits in the history.</p></div>
-        <div class="card"><span class="glyph">&#128276;</span><h3>Push notifications</h3><p>Get pinged the moment your agent needs you or finishes the job.</p></div>
+        <div class="card"><span class="glyph">&#128276;</span><h3>Notifications</h3><p>Get pinged on iPhone and Mac the moment your agent needs you or finishes the job. In the browser and the desktop app, notifications arrive while Matron is open.</p></div>
         <div class="card"><span class="glyph">&#9673;</span><h3>Native on iPhone, Mac and Android</h3><p>Fast, light apps built natively for each platform. Windows and Linux are covered by <a href="https://github.com/Matronhq/matron-desktop">matron-desktop</a> (Electron).</p></div>
       </div>
     </div>
   </section>
 
-  <section id="how" class="alt">
+  <section id="fleet" class="alt">
+    <div class="wrap">
+      <h2>Built for running many agents</h2>
+      <p class="section-lede">Everything else that comes with it.</p>
+      <div class="grid">
+        <div class="card"><span class="glyph">&#9873;</span><h3>Projects and missions</h3><p>Every job has a live one-line status. See the whole board at once.</p></div>
+        <div class="card"><span class="glyph">&#10148;</span><h3>Milestones</h3><p>Each one opens the conversation at that exact point.</p></div>
+        <div class="card"><span class="glyph">&#9998;</span><h3>Tell your agents once</h3><p>Standing rules every agent starts with.</p></div>
+        <div class="card"><span class="glyph">&#9200;</span><h3>Routines</h3><p>The Coordinator does its rounds on a schedule, or when something trips.</p></div>
+        <div class="card"><span class="glyph">&#8644;</span><h3>Hand work between sessions</h3><p>Agents pass work to each other, with you or the Coordinator approving.</p></div>
+        <div class="card"><span class="glyph">&#8984;</span><h3>Search Everything on the Mac</h3><p>&#8984;K finds any conversation, item or project.</p></div>
+        <div class="card"><span class="glyph">&#128197;</span><h3>Reminders that keep</h3><p>Agents pick work back up hours or days later, even after a restart.</p></div>
+        <div class="card"><span class="glyph">&#128196;</span><h3>Reports as web pages</h3><p>Reports open as private links in your browser.</p></div>
+        <div class="card"><span class="glyph">&#128274;</span><h3>App lock</h3><p>Face ID, Touch ID or your fingerprint.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
     <div class="wrap">
       <h2>How it works</h2>
       <p class="section-lede">Matron is a remote control, not a cloud IDE: your code and your conversations stay on your own computers. Three pieces make it run, and one box can host all three. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
@@ -176,7 +228,7 @@
   </section>
 
 
-  <section id="devboxer">
+  <section id="devboxer" class="alt">
     <div class="wrap">
       <h2>No server yet? Meet dev-boxer</h2>
       <p class="section-lede">One command on a fresh Ubuntu 24.04 box (a $5 VPS or a spare machine at home) builds a hardened, always-on agent machine with Claude Code, the bridge and a full dev environment, reachable from anywhere.</p>
@@ -187,7 +239,7 @@
     </div>
   </section>
 
-  <section id="download" class="alt">
+  <section id="download">
     <div class="wrap">
       <h2>Get Matron</h2>
       <p class="section-lede">Matron is on the App Store for iPhone and Mac, and on Google Play for Android. On Windows and Linux, run the open-source desktop app.</p>
