@@ -207,8 +207,6 @@ nav.main a:hover { text-decoration: underline; }
 .feature.wide { grid-template-columns: 1fr; gap: 28px; }
 .feature.wide .shot { max-width: none; }
 .shot.wide img { border-radius: 18px; }
-.shot.sheet img { border-radius: 18px; }
-.feature.wide p { max-width: 44em; }
 
 .mono-inline { font-family: var(--mono); font-size: 0.88em; background: var(--cream-dark); border-radius: 5px; padding: 1px 6px; }
 
