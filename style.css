@@ -260,6 +260,36 @@ h2 {
 .card p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
 .card .glyph { font-family: var(--mono); font-size: 22px; font-weight: 700; display: block; margin-bottom: 10px; }
 
+/* the dark Coordinator / For you band */
+
+section.spot { background: var(--ink); color: var(--cream); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 72px 0; }
+section.spot h2 { font-size: clamp(32px, 4.5vw, 46px); letter-spacing: -1.2px; }
+section.spot .section-lede { color: #cfcdc2; font-size: 19px; }
+section.spot a { color: #8fb4ff; }
+section.spot .shot img { border-color: var(--cream); box-shadow: 8px 8px 0 #4a4a44; border-radius: 34px; background: #111; }
+
+.spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 56px;
+}
+.spotlight.flip { grid-template-columns: 1fr minmax(0, 300px); }
+.spotlight.flip .shot { order: 2; }
+.spotlight h3 { font-size: clamp(26px, 3.2vw, 34px); letter-spacing: -0.8px; line-height: 1.15; margin: 6px 0 18px; }
+.kicker { font-family: var(--mono); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8fe3ae; }
+ul.ticks { list-style: none; margin: 0; padding: 0; }
+ul.ticks li { position: relative; padding-left: 30px; margin: 0 0 14px; color: #cfcdc2; font-size: 17px; }
+ul.ticks li strong { color: var(--cream); }
+ul.ticks li::before { content: "\2713"; position: absolute; left: 0; top: 0; font-weight: 700; color: #8fe3ae; }
+
+@media (max-width: 820px) {
+  .spotlight, .spotlight.flip { grid-template-columns: 1fr; gap: 28px; }
+  .spotlight.flip .shot { order: 0; }
+  .spotlight .shot { max-width: 260px; margin: 0 auto; }
+}
+
 /* how it works */
 
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; counter-reset: step; }

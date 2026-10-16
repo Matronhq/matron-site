@@ -7,7 +7,7 @@
 <meta name="description" content="Matron is an open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, synced through a small server you host. Codex works too, and dev-boxer can build you an agent box from a fresh VPS in one command.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=4">
+<link rel="stylesheet" href="/style.css?v=5">
 <meta property="og:title" content="Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android">
 <meta property="og:description" content="The open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, self-hosted, on the subscription you already pay for.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
@@ -57,6 +57,47 @@
     </div>
 
   </div>
+
+  <section id="coordinator" class="spot">
+    <div class="wrap">
+      <h2>Stop babysitting your agents</h2>
+      <p class="section-lede">Running five agents shouldn&rsquo;t mean checking five terminals. A Coordinator agent watches the rest for you, and anything that really needs you lands in one list on your phone.</p>
+
+      <div class="spotlight">
+        <figure class="shot">
+          <img src="/assets/screens/fleet-projects-ios-dark-2x.png" width="660" height="1434"
+               alt="Matron on iPhone: the Coordinator&rsquo;s latest briefing, &lsquo;3 projects moving, 1 decision waiting for you&rsquo;, above project cards for a new checkout, a docs refresh and faster CI">
+        </figure>
+        <div>
+          <span class="kicker">The Coordinator</span>
+          <h3>An agent whose job is managing your agents</h3>
+          <ul class="ticks">
+            <li><strong>One briefing instead of ten chats.</strong> What moved, what&rsquo;s stuck, and what needs you, written for a glance.</li>
+            <li><strong>It does the rounds.</strong> It sweeps every session on every machine on a schedule, and as soon as something trips: a box low on disk, a context window filling up, a session stuck on a usage limit.</li>
+            <li><strong>It handles the routine calls.</strong> Agents asking to talk to each other or to start a session on another machine get approved under your rules, with the reason written down.</li>
+            <li><strong>It keeps work moving.</strong> Stalled sessions get a nudge, and full ones get compacted before they fall over.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spotlight flip">
+        <figure class="shot">
+          <img src="/assets/screens/fleet-for-you-ios-dark-2x.png" width="660" height="1434"
+               alt="A question in Matron&rsquo;s For you list on iPhone: &lsquo;Address form is ready: merge it to staging?&rsquo; with Merge and Hold for now buttons, and replies from agents on two machines">
+        </figure>
+        <div>
+          <span class="kicker">For you</span>
+          <h3>Only what needs you, in one list</h3>
+          <ul class="ticks">
+            <li><strong>Every ask from every agent, in one place.</strong> Questions, decisions and approvals from all your machines, instead of scattered across chats you weren&rsquo;t watching.</li>
+            <li><strong>Answer with one tap.</strong> &ldquo;Merge&rdquo;, &ldquo;Hold for now&rdquo;: tap it from the queue at the coffee shop and the agent carries on.</li>
+            <li><strong>Nothing scrolls away.</strong> Each item keeps its own thread, with screenshots and the agent&rsquo;s follow-ups, until it&rsquo;s done.</li>
+            <li><strong>Read-only news stays quiet.</strong> Things you should know but don&rsquo;t need to decide come as notices you clear with one tap.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="parts">
     <div class="wrap">
@@ -165,70 +206,16 @@
 
   <section id="fleet" class="alt">
     <div class="wrap">
-      <h2>Run a fleet of agents, not just one chat</h2>
-      <p class="section-lede">Once several agents work for you at once, the hard part is keeping track. Matron gives every piece of work a home, gathers every question into one list, and adds a Coordinator agent that keeps an eye on the rest.</p>
-
-      <div class="showcase">
-        <div class="feature">
-          <figure class="shot">
-            <img src="/assets/screens/fleet-projects-ios-dark-2x.png" width="660" height="1434" loading="lazy"
-                 alt="Matron&rsquo;s Projects tab on iPhone: the Coordinator&rsquo;s latest briefing at the top, then project cards for a new checkout, a docs refresh and faster CI, one of them waiting on you">
-          </figure>
-          <div>
-            <h3>Projects and missions: hours of work at a glance</h3>
-            <p>Each piece of work is a mission with a one-line status that the agent doing it keeps up to date. Missions group into projects, so the dashboard reads like a stand-up: what&rsquo;s moving, what&rsquo;s stuck, and what&rsquo;s waiting on you.</p>
-          </div>
-        </div>
-
-        <div class="feature flip">
-          <figure class="shot">
-            <img src="/assets/screens/fleet-mission-ios-dark-2x.png" width="660" height="1434" loading="lazy"
-                 alt="A mission page in Matron on iPhone: its status, the one question that needs you, the session working on it, and its milestones">
-          </figure>
-          <div>
-            <h3>Milestones you can jump back to</h3>
-            <p>Agents post milestones as they go: a merged PR, a diagnosis, the moment you changed direction. Each one opens the conversation at that exact point, so there&rsquo;s no scrolling through hours of transcript to find it.</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <figure class="shot">
-            <img src="/assets/screens/fleet-for-you-ios-dark-2x.png" width="660" height="1434" loading="lazy"
-                 alt="A question in Matron on iPhone: &lsquo;Address form is ready: merge it to staging?&rsquo; with Merge and Hold for now buttons, and replies from agents on two different machines">
-          </figure>
-          <div>
-            <h3>Everything that needs you, in one list</h3>
-            <p>Agents file their questions, decisions and to-dos in a shared tracker instead of burying them in chat. <strong>For you</strong> lists what&rsquo;s waiting on you from every machine. Answer with one tap or reply in the item&rsquo;s own thread, and the answer goes straight back to the agent that asked.</p>
-          </div>
-        </div>
-
-        <div class="feature flip">
-          <figure class="shot">
-            <img src="/assets/screens/fleet-routines-ios-dark-2x.png" width="660" height="1434" loading="lazy"
-                 alt="The Coordinator&rsquo;s Routines screen on iPhone: a daily sweep, an evening deploy window and a twice-daily project status on schedules, plus triggers for a full context window or a box low on disk">
-          </figure>
-          <div>
-            <h3>A Coordinator that keeps watch</h3>
-            <p>Make one session your Coordinator. It sweeps your projects on a schedule, or when something trips: a box low on disk, a session stuck on a usage limit. It writes you a briefing, approves agent requests that follow your rules, and nudges stalled sessions back to work.</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <figure class="shot">
-            <img src="/assets/screens/fleet-memories-ios-dark-2x.png" width="660" height="1434" loading="lazy"
-                 alt="Matron&rsquo;s Memories list on iPhone: standing rules such as running the tests before asking to merge and deploying to staging first">
-          </figure>
-          <div>
-            <h3>Tell your agents once</h3>
-            <p>Save standing rules as memories: for every session, for the Coordinator only, or for one repository. Every agent starts with them, and you can read and edit the whole list from the app.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid" style="margin-top:56px">
-        <div class="card"><span class="glyph">&#8644;</span><h3>Hand work between sessions</h3><p>An agent can pass a tracker item to another session, or ask to start a new session on another machine. You approve each new session, or let the Coordinator approve it under your rules.</p></div>
+      <h2>Built for running many agents</h2>
+      <p class="section-lede">The Coordinator and For you sit on top of a shared tracker that every agent writes to.</p>
+      <div class="grid">
+        <div class="card"><span class="glyph">&#9873;</span><h3>Projects and missions</h3><p>Every piece of work is a mission with a live one-line status. Missions group into projects, so you can see the whole board at once.</p></div>
+        <div class="card"><span class="glyph">&#10148;</span><h3>Milestones you can jump back to</h3><p>Agents mark the moments that matter, such as a merged PR or a change of plan. Each one opens the conversation at that exact point.</p></div>
+        <div class="card"><span class="glyph">&#9998;</span><h3>Tell your agents once</h3><p>Standing rules saved as memories, for every session, the Coordinator or one repo. Every agent starts with them.</p></div>
+        <div class="card"><span class="glyph">&#9200;</span><h3>Routines</h3><p>Schedule the Coordinator&rsquo;s rounds, or trigger them when something needs a look. Pause one, or run it now, from the app.</p></div>
+        <div class="card"><span class="glyph">&#8644;</span><h3>Hand work between sessions</h3><p>An agent can pass a tracker item to another session, or ask to start a new session on another machine. You approve it, or let the Coordinator do it.</p></div>
         <div class="card"><span class="glyph">&#8984;</span><h3>Search Everything on the Mac</h3><p>Press &#8984;K for one search across conversations, tracker items, missions, projects and messages.</p></div>
-        <div class="card"><span class="glyph">&#9200;</span><h3>Reminders that keep</h3><p>Agents can set themselves a reminder for later. It survives restarts and comes back as a new turn hours or days later.</p></div>
+        <div class="card"><span class="glyph">&#128197;</span><h3>Reminders that keep</h3><p>Agents can set themselves a reminder for later. It survives restarts and comes back as a new turn, hours or days later.</p></div>
         <div class="card"><span class="glyph">&#128196;</span><h3>Reports as web pages</h3><p>An agent can hand you an HTML report as a private link that opens in your browser, not as a file to download.</p></div>
         <div class="card"><span class="glyph">&#128274;</span><h3>App lock</h3><p>Keep Matron behind Face ID or Touch ID on iPhone, Touch ID on the Mac, or your fingerprint on Android.</p></div>
       </div>
