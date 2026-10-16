@@ -7,7 +7,7 @@
 <meta name="description" content="Matron is an open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, synced through a small server you host. Codex works too, and dev-boxer can build you an agent box from a fresh VPS in one command.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=3">
+<link rel="stylesheet" href="/style.css?v=4">
 <meta property="og:title" content="Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android">
 <meta property="og:description" content="The open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, self-hosted, on the subscription you already pay for.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
@@ -23,6 +23,7 @@
     <a class="brand" href="/">matron</a>
     <nav class="main" id="nav">
       <a href="#features">Features</a>
+      <a href="#fleet">Fleet</a>
       <a href="#how">How it works</a>
       <a href="/dev-boxer/">dev-boxer</a>
       <a href="https://github.com/Matronhq">GitHub</a>
@@ -157,13 +158,85 @@
         <div class="card"><span class="glyph">&#127991;</span><h3>Chats name themselves</h3><p>Every session gets an automatic title and a live summary of what the agent last did, so the chat list reads like a status board.</p></div>
         <div class="card"><span class="glyph">&#9201;</span><h3>Queue it, schedule it</h3><p>Type while the agent is mid-task and your messages deliver in order when it&rsquo;s ready, or put one on a timer to land later.</p></div>
         <div class="card"><span class="glyph">&#128272;</span><h3>Secrets stay out of the chat</h3><p>Swap credentials in both directions through one-time secure forms and viewer links; agents hand files back the same way. Nothing sensitive sits in the history.</p></div>
-        <div class="card"><span class="glyph">&#128276;</span><h3>Push notifications</h3><p>Get pinged the moment your agent needs you or finishes the job.</p></div>
+        <div class="card"><span class="glyph">&#128276;</span><h3>Notifications</h3><p>Get pinged on iPhone and Mac the moment your agent needs you or finishes the job. In the browser and the desktop app, notifications arrive while Matron is open.</p></div>
         <div class="card"><span class="glyph">&#9673;</span><h3>Native on iPhone, Mac and Android</h3><p>Fast, light apps built natively for each platform. Windows and Linux are covered by <a href="https://github.com/Matronhq/matron-desktop">matron-desktop</a> (Electron).</p></div>
       </div>
     </div>
   </section>
 
-  <section id="how" class="alt">
+  <section id="fleet" class="alt">
+    <div class="wrap">
+      <h2>Run a fleet of agents, not just one chat</h2>
+      <p class="section-lede">Once several agents work for you at once, the hard part is keeping track. Matron gives every piece of work a home, gathers every question into one list, and adds a Coordinator agent that keeps an eye on the rest.</p>
+
+      <div class="showcase">
+        <div class="feature wide">
+          <figure class="shot wide">
+            <img src="/assets/screens/app-10-projects-briefing-wide.png" width="2560" height="1600" loading="lazy"
+                 alt="Matron&rsquo;s Projects dashboard: a Coordinator briefing at the top, then project cards for a new checkout, a docs site launch and nightly backups, each with a one-line status and a Needs you count">
+          </figure>
+          <div>
+            <h3>Projects and missions: hours of work at a glance</h3>
+            <p>Each piece of work is a mission with a one-line status that the agent doing it keeps up to date. Missions group into projects, so the dashboard reads like a stand-up: what&rsquo;s moving, what&rsquo;s stuck, and what&rsquo;s waiting on you.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <figure class="shot">
+            <img src="/assets/screens/app-11-mission-dark.png" width="780" height="1688" loading="lazy"
+                 alt="A mission page in Matron: its goal, a status box saying the address form waits on review, and a list of milestones such as a merged payment step and the user&rsquo;s own change of direction">
+          </figure>
+          <div>
+            <h3>Milestones you can jump back to</h3>
+            <p>Agents post milestones as they go: a merged PR, a diagnosis, the moment you changed direction. Each one opens the conversation at that exact point, so there&rsquo;s no scrolling through hours of transcript to find it.</p>
+          </div>
+        </div>
+
+        <div class="feature flip">
+          <figure class="shot">
+            <img src="/assets/screens/app-12-for-you-dark.png" width="780" height="1688" loading="lazy"
+                 alt="A question in Matron&rsquo;s For you list: &lsquo;Address form is ready: merge it to staging?&rsquo; with Merge and Hold for now buttons, and replies from agents on two different machines">
+          </figure>
+          <div>
+            <h3>Everything that needs you, in one list</h3>
+            <p>Agents file their questions, decisions and to-dos in a shared tracker instead of burying them in chat. <strong>For you</strong> lists what&rsquo;s waiting on you from every machine. Answer with one tap or reply in the item&rsquo;s own thread, and the answer goes straight back to the agent that asked.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <figure class="shot sheet">
+            <img src="/assets/screens/app-13-routines-dark.png" width="1120" height="1372" loading="lazy"
+                 alt="The Coordinator&rsquo;s Routines sheet: a daily sweep, a paused deploy window, a disk-low trigger, a twice-daily project status and a stalled-session trigger, each with a Run now button">
+          </figure>
+          <div>
+            <h3>A Coordinator that keeps watch</h3>
+            <p>Make one session your Coordinator. It sweeps your projects on a schedule, or when something trips: a box low on disk, a session stuck on a usage limit. It writes you a briefing, approves agent requests that follow your rules, and nudges stalled sessions back to work.</p>
+          </div>
+        </div>
+
+        <div class="feature flip">
+          <figure class="shot">
+            <img src="/assets/screens/app-14-memories-dark.png" width="780" height="1688" loading="lazy"
+                 alt="Matron&rsquo;s Memories list: standing rules such as running the tests before asking to merge and deploying to staging first">
+          </figure>
+          <div>
+            <h3>Tell your agents once</h3>
+            <p>Save standing rules as memories: for every session, for the Coordinator only, or for one repository. Every agent starts with them, and you can read and edit the whole list from the app.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:56px">
+        <div class="card"><span class="glyph">&#8644;</span><h3>Hand work between sessions</h3><p>An agent can pass a tracker item to another session, or ask to start a new session on another machine. You approve each new session, or let the Coordinator approve it under your rules.</p></div>
+        <div class="card"><span class="glyph">&#8984;</span><h3>Search Everything on the Mac</h3><p>Press &#8984;K for one search across conversations, tracker items, missions, projects and messages.</p></div>
+        <div class="card"><span class="glyph">&#9200;</span><h3>Reminders that keep</h3><p>Agents can set themselves a reminder for later. It survives restarts and comes back as a new turn hours or days later.</p></div>
+        <div class="card"><span class="glyph">&#128196;</span><h3>Reports as web pages</h3><p>An agent can hand you an HTML report as a private link that opens in your browser, not as a file to download.</p></div>
+        <div class="card"><span class="glyph">&#128274;</span><h3>App lock</h3><p>Keep Matron behind Face ID or Touch ID on iPhone and Mac, or your fingerprint on Android.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
     <div class="wrap">
       <h2>How it works</h2>
       <p class="section-lede">Matron is a remote control, not a cloud IDE: your code and your conversations stay on your own computers. Three pieces make it run, and one box can host all three. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
@@ -176,7 +249,7 @@
   </section>
 
 
-  <section id="devboxer">
+  <section id="devboxer" class="alt">
     <div class="wrap">
       <h2>No server yet? Meet dev-boxer</h2>
       <p class="section-lede">One command on a fresh Ubuntu 24.04 box (a $5 VPS or a spare machine at home) builds a hardened, always-on agent machine with Claude Code, the bridge and a full dev environment, reachable from anywhere.</p>
@@ -187,7 +260,7 @@
     </div>
   </section>
 
-  <section id="download" class="alt">
+  <section id="download">
     <div class="wrap">
       <h2>Get Matron</h2>
       <p class="section-lede">Matron is on the App Store for iPhone and Mac, and on Google Play for Android. On Windows and Linux, run the open-source desktop app.</p>
