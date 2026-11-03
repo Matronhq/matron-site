@@ -1,2 +1,5 @@
 .wrangler/
 .DS_Store
+
+# Agent scratch (PR bodies, screenshots): never committed
+.superpowers/
