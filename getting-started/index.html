@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get started in four steps — Matron</title>
-<meta name="description" content="Get a server, run the guided installer, start your first chat, and add connections or more computers when you need them.">
+<meta name="description" content="Get a server, run the guided installer, start your first chat, and add more computers when you need them.">
 <link rel="canonical" href="https://matron.chat/getting-started/">
 <link rel="icon" type="image/png" href="/assets/favicon-32.png">
 <link rel="stylesheet" href="/style.css?v=6">
@@ -22,9 +22,10 @@
     <h1>A computer that works.<br>A place to talk to it.</h1>
     <p class="lede">Rent a small computer that stays on. Run one guided setup. Open Matron and give your first agent a job.</p>
     <p>An <strong>agent</strong> is an AI that can use tools and carry out work. A <strong>box</strong> is a computer it runs on. You can start with one.</p>
+    <p>This guide sets up text chat and file sharing. Email and other service integrations are not included.</p>
     <div class="before"><strong>Before you buy:</strong> you need a computer for the initial setup, an SSH key, and a Claude Code or Codex account with access to its command-line app. The server and AI usage are separate bills. Matron is open source; it does not include either subscription.</div>
   </div>
-  <nav class="step-nav" aria-label="Setup steps"><a href="#vps">1. Get a VPS</a><a href="#install">2. Run the script</a><a href="#gmail">3. Add Gmail</a><a href="#boxes">4. Add more boxes</a></nav>
+  <nav class="step-nav" aria-label="Setup steps"><a href="#vps">1. Get a VPS</a><a href="#install">2. Run the script</a><a href="#first-chat">3. Start a chat</a><a href="#boxes">4. Add more boxes</a></nav>
 
   <section class="onboarding-step" id="vps" aria-labelledby="vps-title">
     <div class="step-heading"><span class="step-number" aria-hidden="true">1</span><div><p class="eyebrow">START HERE</p><h2 id="vps-title">Get a VPS</h2></div></div>
@@ -66,20 +67,16 @@
     </ol>
     <p class="small">Sign-in help: <a href="https://code.claude.com/docs/en/authentication">Claude Code</a> · <a href="https://learn.chatgpt.com/docs/auth?surface=cli">Codex</a>.</p>
     <p>Behind the scenes, setup installs the browser app, your conversation store (the journal), the connection to the AI (the bridge), and a file viewer. It sets up trusted HTTPS, automatic startup, and one AI provider. This starter setup uses text chat; voice transcription and development extras are optional advanced configuration.</p>
-    <div class="first-job"><strong>Try your first chat</strong><p>Click the pencil button (<strong>New session</strong>), then choose your box if asked. Leave <strong>Folder path</strong> blank to use the prepared <strong>work</strong> folder, then click <strong>Start</strong>. Send:</p><blockquote>Say hello, then put a notice in For you saying my first chat works.</blockquote><p>Check that you get a reply and that the notice appears in <strong>For you</strong>. A running service alone does not prove the chat is ready.</p></div>
-    <p class="small">This is your own computer, and the agent account can administer it with sudo. Add only accounts and data you intend it to use. A restricted Gmail desk is a separate setup.</p>
+    <p class="small">This is your own computer, and the agent account can administer it with sudo. Add only accounts and data you intend it to use.</p>
     <div class="expected"><strong>Next time you connect by SSH:</strong> use <code>ssh dev@YOUR_VPS_IP</code>. Setup keeps port 22, installs your key, and disables root and password SSH login. Try this in a second terminal before closing the first.</div>
   </section>
 
-  <section class="onboarding-step" id="gmail" aria-labelledby="gmail-title">
-    <div class="step-heading"><span class="step-number" aria-hidden="true">3</span><div><p class="eyebrow">OPTIONAL · FORTHCOMING</p><h2 id="gmail-title">Want Gmail? Add a connection.</h2></div></div>
-    <p><strong>The Gmail connector is being built. It is not installed by this script.</strong> You can use Matron for other work now and return to this step when it is released.</p>
-    <p>The planned entry point is <code>matron-connector install gmail</code>, followed by guided Google consent with <code>matron-gmail consent</code>. These are planned commands, not available installation instructions.</p>
-    <p>The first version is planned to read and search email and make drafts. It will not send mail. The restricted desk keeps Google credentials with its connector account and gives its agent only the allowed mail commands.</p>
-    <details><summary>What will I need for Gmail?</summary>
-      <p>Your own Google Cloud project, Gmail API enabled, an OAuth client and a <strong>domain or hostname with HTTPS</strong> for Google's return address. <a href="https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation">Google does not allow a public IP as the web OAuth callback host.</a> A trusted IP certificate alone does not remove that requirement.</p>
-      <p>The connector guide will cover the hostname and consent screens. External apps left in Google's Testing mode usually need Gmail authorization renewed after seven days; <a href="https://developers.google.com/identity/protocols/oauth2#expiration">Google explains the expiry rules</a>.</p>
-    </details>
+  <section class="onboarding-step" id="first-chat" aria-labelledby="first-chat-title">
+    <div class="step-heading"><span class="step-number" aria-hidden="true">3</span><div><p class="eyebrow">CHECK IT WORKS</p><h2 id="first-chat-title">Start your first chat</h2></div></div>
+    <p>In Matron, click the pencil button (<strong>New session</strong>), then choose your box if asked. Leave <strong>Folder path</strong> blank to use the prepared <strong>work</strong> folder, then click <strong>Start</strong>.</p>
+    <div class="first-job"><strong>Give your agent a small job</strong><p>Send:</p><blockquote>Say hello, then put a notice in For you saying my first chat works.</blockquote><p>Check that you get a reply and that the notice appears in <strong>For you</strong>. A running service alone does not prove the chat is ready.</p></div>
+    <p>If the agent cannot reply, reconnect to the VPS and run <code>sudo matron login</code> to check your AI sign-in. The <a href="#help">recovery commands below</a> help with other setup problems.</p>
+    <div class="expected"><strong>You should now have:</strong> a working chat and a notice in For you. You can start giving your agent work on this box.</div>
   </section>
 
   <section class="onboarding-step" id="boxes" aria-labelledby="boxes-title">
