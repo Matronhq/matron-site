@@ -17,7 +17,7 @@
 <div class="stats"><div class="stat"><strong id="minutes">0</strong><span>minutes this week</span></div><div class="stat"><strong id="sessions">0</strong><span>entries this week</span></div></div>
 <p class="week" id="week"></p>
 <section class="panel" aria-labelledby="add-title"><h2 id="add-title">Add to your log</h2>
-<form id="entry-form"><label>Activity<input id="activity" name="activity" required maxlength="80" placeholder="e.g. Walking" autocomplete="off"></label><label>Minutes<input id="duration" name="duration" type="number" min="1" max="1440" step="1" required placeholder="25"></label><label>Date<input id="date" name="date" type="date" required></label><button type="submit">Save activity</button></form>
+<form id="entry-form"><label>Activity<input id="activity" name="activity" required maxlength="80" placeholder="e.g. Walking" autocomplete="off"></label><label>Minutes<input id="duration" name="duration" type="number" min="1" max="1440" step="1" required placeholder="25"></label><label>Date<input id="date" name="date" type="date" required></label><button id="save" type="submit">Save activity</button></form>
 <p id="feedback" class="status" role="status" aria-live="polite"></p></section>
 <section class="panel" aria-labelledby="log-title"><h2 id="log-title">Your entries</h2><p id="empty" class="empty">Your log is empty. Add an activity above to try it.</p><ul id="log" class="log"></ul><div class="tools"><button id="export" type="button">Export records</button><a id="download" href="./index.html" download="fitness-tracker.html">Download this app</a></div></section>
 <p id="storage" class="status">Records stay in this browser on this device. They are not sent anywhere or synced to another device. Clearing browser data removes them; export a copy if you want to keep them.</p>
@@ -59,14 +59,18 @@
     });
   }
   byId('date').value = localDate(new Date());
-  byId('entry-form').addEventListener('submit', event => {
+  function saveEntry(event) {
     event.preventDefault();
+    if (!byId('entry-form').reportValidity()) return;
     const entry = {id:globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`, activity:byId('activity').value.trim(), minutes:Number(byId('duration').value), date:byId('date').value};
     if (!validEntry(entry)) { byId('feedback').textContent = 'Enter an activity, a whole number of minutes from 1 to 1440, and a valid date.'; return; }
     entries.push(entry); save(); render();
     byId('activity').value = ''; byId('duration').value = ''; byId('activity').focus();
     byId('feedback').textContent = persistent ? `Saved ${entry.activity}.` : `Added ${entry.activity} for this visit. Export to keep a copy.`;
-  });
+  }
+  // Handle the click before a sandbox can block native form submission.
+  byId('save').addEventListener('click', saveEntry);
+  byId('entry-form').addEventListener('submit', saveEntry);
   byId('export').addEventListener('click', () => {
     const url = URL.createObjectURL(new Blob([JSON.stringify(entries,null,2)],{type:'application/json'}));
     const link = document.createElement('a'); link.href = url; link.download = 'workout-log.json'; link.click();
