@@ -6,12 +6,14 @@
 <title>Field notes — example workout tracker</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#eef3e8;color:#263d2e;font:16px/1.55 system-ui,sans-serif}a{color:inherit;text-underline-offset:4px}header,main,footer{max-width:880px;margin:auto;padding:26px}header{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid #b8c7ae;flex-wrap:wrap}.brand{font:bold 23px Georgia,serif}.tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}h1{font:clamp(36px,6vw,58px)/1.1 Georgia,serif;letter-spacing:-.035em;margin:18px 0}.intro{max-width:600px;color:#4d604b}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}.stat,.panel{background:#fbfcf7;border:1px solid #b8c7ae;border-radius:16px;padding:24px}.stat strong{display:block;font:42px Georgia,serif}.stat span{font-size:14px;color:#4d604b}h2{font:25px Georgia,serif;margin:0 0 20px}.panel{margin:20px 0}form{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:16px}label{font-size:14px;font-weight:650;display:block}input,button{font:inherit}input{width:100%;min-width:0;margin-top:7px;border:1px solid #7d9272;border-radius:8px;padding:11px;background:white;color:#263d2e}button{cursor:pointer;border:1px solid #304b37;border-radius:8px;background:#304b37;color:white;padding:11px 16px;min-height:44px}form button{grid-column:1/-1;justify-self:start}.tools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px}.tools a,.tools button{font-size:14px}.tools button,.remove{color:#304b37;background:transparent}.log{list-style:none;margin:0;padding:0}.log li{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;border-top:1px solid #d3ddcb;padding:16px 0}.log li:first-child{border-top:0}.log strong{display:block;overflow-wrap:anywhere}.log small{color:#53664e}.remove{font-size:13px;padding:8px}.empty{color:#53664e}.status{min-height:24px;margin:14px 0 0;color:#405a3b;font-size:14px}.week{font-size:14px;color:#53664e;margin-top:-10px}footer{font-size:13px;color:#53664e}:focus-visible{outline:3px solid #1a62b5;outline-offset:4px}@media(max-width:620px){header,main,footer{padding:20px}form{grid-template-columns:1fr}.stats{gap:10px}.stat,.panel{padding:19px}.log li{gap:10px}.log li>span{font-size:14px}}
+
+.example-bar{position:sticky;top:0;z-index:10;max-width:none;margin:0;padding:0;background:#202820;color:white;border:0;font:14px/1.4 system-ui,sans-serif}.example-bar .bar-inner{width:100%;max-width:1200px;margin:auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.example-bar a{color:white}.example-bar span{font-weight:700}
 </style>
 </head>
 <body>
-<header><span class="brand">Field notes</span><a href="https://matron.chat/examples/design-directions/">See the design directions</a></header>
+<header class="example-bar"><div class="bar-inner"><span>Worked example · 2 of 2</span><a href="https://matron.chat/">&larr; Back to Matron</a></div></header>
 <main>
-<p class="tag">A working example · made for the Matron guide</p>
+<p class="tag">Example app / Field notes fitness tracker</p>
 <h1>A little progress,<br>written down.</h1>
 <p class="intro">Log an activity and how long you spent on it. This small prototype runs entirely in your browser, without an account or a server.</p>
 <div class="stats"><div class="stat"><strong id="minutes">0</strong><span>minutes this week</span></div><div class="stat"><strong id="sessions">0</strong><span>entries this week</span></div></div>
@@ -22,7 +24,7 @@
 <section class="panel" aria-labelledby="log-title"><h2 id="log-title">Your entries</h2><p id="empty" class="empty">Your log is empty. Add an activity above to try it.</p><ul id="log" class="log"></ul><div class="tools"><button id="export" type="button">Export records</button><a id="download" href="./index.html" download="fitness-tracker.html">Download this app</a></div></section>
 <p id="storage" class="status">Records stay in this browser on this device. They are not sent anywhere or synced to another device. Clearing browser data removes them; export a copy if you want to keep them.</p>
 </main>
-<footer>This is an example of a small app you can ask an agent to build. It has no wearable connection or health advice. <a href="https://matron.chat/getting-started/#first-chat">Try the first Matron task</a>.</footer>
+<footer>End of the worked example. <a href="https://matron.chat/examples/design-directions/">View the design directions</a> or <a href="https://matron.chat/">return to Matron</a>.</footer>
 <script>
 (() => {
   'use strict';
