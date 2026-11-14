@@ -1,0 +1,43 @@
+.guide { max-width: 900px; padding-bottom: 64px; }
+.guide-intro { padding: 64px 0 30px; max-width: 760px; }
+.eyebrow { font: 600 12px var(--mono); letter-spacing: .1em; color: var(--ink-soft); margin: 0 0 10px; }
+.guide h1 { font-size: clamp(36px, 5.7vw, 60px); line-height: 1.08; letter-spacing: -.04em; margin: 16px 0 24px; }
+.guide .lede { font-size: 22px; line-height: 1.5; }
+.before, .expected, .first-job { border: 2px solid var(--ink); border-radius: 12px; padding: 20px 24px; margin: 24px 0; background: var(--cream-dark); }
+.before { font-size: 16px; }
+.step-nav { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 0 36px; }
+.step-nav a { color: var(--ink); border: 1.5px solid; border-radius: 30px; padding: 8px 16px; font-size: 14px; text-decoration: none; }
+.step-nav a:hover { background: var(--cream-dark); }
+.onboarding-step, .help { scroll-margin-top: 100px; padding: 38px 0; border-top: 2px solid var(--ink); }
+.step-heading { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; }
+.step-number { display: grid; place-items: center; flex: 0 0 60px; height: 60px; border: 2px solid var(--ink); border-radius: 14px; box-shadow: 3px 3px 0 var(--ink); font: 700 28px var(--mono); }
+.guide h2 { margin: 0; font-size: clamp(27px, 4vw, 36px); letter-spacing: -.03em; line-height: 1.2; }
+.step-heading .eyebrow { margin-bottom: 6px; }
+.guide p { max-width: 72ch; }
+.guide .small { font-size: 14px; color: var(--ink-soft); }
+.guide code { font-family: var(--mono); font-size: .88em; overflow-wrap: anywhere; }
+.guide pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 18px; background: var(--ink); color: var(--cream); border-radius: 8px; line-height: 1.7; }
+.command { display: flex; align-items: center; gap: 12px; padding: 14px; border: 2px solid var(--ink); border-radius: 12px; background: var(--ink); color: var(--cream); }
+.command pre { padding: 0; margin: 0; flex: 1; min-width: 0; }
+.command button { flex-shrink: 0; background: var(--cream); color: var(--ink); border: 1px solid var(--cream); border-radius: 6px; padding: 10px 14px; cursor: pointer; font: 600 14px var(--sans); min-height: 44px; }
+.instructions { padding-left: 24px; }
+.instructions li { padding-left: 8px; margin: 14px 0; }
+.first-job { background: #e8eee4; }
+.first-job p:last-child { margin-bottom: 0; }
+.first-job blockquote { margin: 16px 0; padding-left: 18px; border-left: 3px solid var(--good); font-size: 20px; }
+.table-scroll { overflow-x: auto; margin: 24px 0; }
+.guide table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 580px; }
+.guide caption { text-align: left; padding-bottom: 12px; font-size: 13px; color: var(--ink-soft); }
+.guide th, .guide td { padding: 14px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid #ccc9bc; }
+.guide th { border-bottom: 2px solid var(--ink); }
+.guide td:first-child { min-width: 145px; font-weight: 600; }
+.guide td:nth-child(2) { min-width: 140px; }
+.guide details { border: 1px solid #ccc9bc; border-radius: 8px; margin: 18px 0; padding: 16px 20px; }
+.guide summary { cursor: pointer; font-weight: 600; }
+.guide details p:last-child { margin-bottom: 0; }
+.recovery dt { font-weight: 700; margin-top: 22px; }
+.recovery dd { margin: 4px 0 0; }
+.copy-status { min-height: 1.6em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 640px) { .guide-intro { padding-top: 36px; } .onboarding-step { padding: 30px 0; } .command { flex-direction: column; align-items: stretch; } .command button { align-self: flex-start; } .before, .expected, .first-job { padding: 18px; } .guide .lede { font-size: 20px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
