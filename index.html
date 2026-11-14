@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android</title>
-<meta name="description" content="Matron is an open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, synced through a small server you host. Codex works too, and dev-boxer can build you an agent box from a fresh VPS in one command.">
+<title>Matron — a control center for everything: your own AI agents, open source and self-hosted</title>
+<meta name="description" content="Matron runs a team of AI agents on servers you control. They take on work like email, finance and technical jobs, and you steer them from native iPhone, Mac and Android apps. Open source and self-hosted.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=6">
-<meta property="og:title" content="Matron — the open-source remote control for Claude Code, on iPhone, Mac and Android">
-<meta property="og:description" content="The open-source remote control for Claude Code. Chat with the agents on your own machines from native iPhone, Mac and Android apps, self-hosted, on the subscription you already pay for.">
+<link rel="stylesheet" href="/style.css?v=7">
+<meta property="og:title" content="Matron — a control center for everything: your own AI agents, open source and self-hosted">
+<meta property="og:description" content="A control center for everything. Run a team of AI agents on servers you control and steer them from your phone. Open source and self-hosted.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
 <meta property="og:url" content="https://matron.chat/">
 <meta property="og:type" content="website">
@@ -22,7 +22,8 @@
     <img src="/assets/icon-256.png" alt="" width="36" height="36">
     <a class="brand" href="/">matron</a>
     <nav class="main" id="nav">
-      <a href="#features">Features</a>
+      <a href="#work">What it does</a>
+      <a href="#compare">Compare</a>
       <a href="#how">How it works</a>
       <a href="/dev-boxer/">dev-boxer</a>
       <a href="https://github.com/Matronhq">GitHub</a>
@@ -36,12 +37,12 @@
 <main>
   <div class="wrap hero">
     <div>
-      <h1>The open-source remote control for Claude Code</h1>
-      <p class="lede">Matron turns the Claude Code sessions on your machines into live chats in native apps on Mac, iPhone and Android, plus an Electron app for Windows and Linux. Everything syncs through a small server you host, so the session you start at your desk is already on your phone when you stand up. Also support Codex!</p>
+      <h1>A control center for everything</h1>
+      <p class="lede">Matron runs a team of AI agents on servers you control. They take on the work you hand them: email, finance, research, technical jobs. You tell them what you want from your phone, and they come back to you only when they need a decision. It&rsquo;s open source, and you host it yourself.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://apps.apple.com/app/matron/id6791565930">Download on the App&nbsp;Store</a>
         <a class="btn ghost" href="https://play.google.com/store/apps/details?id=chat.matron.android">Get it on Google&nbsp;Play</a>
-        <span class="cta-note">iPhone, Mac, Android, Windows and Linux &middot; open source</span>
+        <span class="cta-note">iPhone, Mac, Android, Windows and Linux &middot; open source &middot; self-hosted</span>
       </div>
     </div>
 
@@ -57,6 +58,22 @@
     </div>
 
   </div>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>What your agents can do</h2>
+      <p class="section-lede">An agent is an AI that does the work instead of describing it. Give it access to something and it can read, decide and act there, around the clock.</p>
+      <div class="grid">
+        <div class="card"><span class="glyph">&#9993;</span><h3>Email</h3><p>Read what comes in and draft the replies for you to approve.</p></div>
+        <div class="card"><span class="glyph">&#36;</span><h3>Finance</h3><p>Keep track of bills, receipts and payments, and flag what needs your attention.</p></div>
+        <div class="card"><span class="glyph">&#128269;</span><h3>Research</h3><p>Look things up, compare the options and write up what they found.</p></div>
+        <div class="card"><span class="glyph">&#10100;&#10101;</span><h3>Technical jobs</h3><p>Build things, fix things and keep them running: websites, code, servers.</p></div>
+        <div class="card"><span class="glyph">&#128230;</span><h3>Errands</h3><p>Book a delivery, place an order, fill in a form. Agents can use a website the way you would.</p></div>
+        <div class="card"><span class="glyph">&#10010;</span><h3>Anything else</h3><p>If a service can be reached by software, an agent can work with it.</p></div>
+      </div>
+      <p class="honesty">You decide what each agent can reach. You connect a service by giving your agents a tool for it: a connector (an MCP server), a command-line program or an API key. Matron is where you run the agents, see what they are doing and answer their questions.</p>
+    </div>
+  </section>
 
   <section id="coordinator" class="spot">
     <div class="wrap">
@@ -78,7 +95,7 @@
                  alt="Matron&rsquo;s Projects screen on iPhone: the latest briefing above three projects, one needing you">
           </figure>
           <span class="kicker">2 &middot; It hands it to an agent</span>
-          <p>It starts the work on one of your machines and keeps track of every agent.</p>
+          <p>It starts the work on one of your servers and keeps track of every agent.</p>
         </li>
         <li>
           <figure class="shot">
@@ -92,41 +109,57 @@
     </div>
   </section>
 
-  <section id="parts">
+  <section id="control">
     <div class="wrap">
-      <h2>What Matron is</h2>
-      <p class="section-lede">Four small open-source parts that snap together. One cheap VPS can run the lot, and all of it is on <a href="https://github.com/Matronhq">GitHub</a> if you want to read the code or fork it.</p>
+      <h2>You stay in charge</h2>
+      <p class="section-lede">Agents do the work. The decisions stay with you.</p>
       <div class="grid four">
-        <div class="card"><span class="glyph">&#9673;</span><h3>The apps</h3><p>Native <a href="https://apps.apple.com/app/matron/id6791565930">Mac and iPhone</a> and <a href="https://play.google.com/store/apps/details?id=chat.matron.android">Android</a> clients, an <a href="https://github.com/Matronhq/matron-desktop">Electron app</a> for Windows and Linux, and a <a href="https://github.com/Matronhq/matron-web">web client</a>.</p></div>
-        <div class="card"><span class="glyph">&#9636;</span><h3><a href="https://github.com/Matronhq/matron-journal">matron-journal</a></h3><p>The sync server you host: a small Node service backed by SQLite. Every device reads the same conversations from it, live.</p></div>
-        <div class="card"><span class="glyph">&#10231;</span><h3><a href="https://github.com/Matronhq/matron-bridge">matron-bridge</a></h3><p>Runs beside Claude Code or Codex on each dev machine and publishes its sessions to your journal.</p></div>
-        <div class="card"><span class="glyph">&#9635;</span><h3><a href="/dev-boxer/">dev-boxer</a></h3><p>No dev machine? One command turns a fresh Ubuntu VPS into a hardened, always-on agent box.</p></div>
+        <div class="card"><span class="glyph">&#10003;</span><h3>Nothing big without your tap</h3><p>Agents ask before they do anything that matters, like sending a message or spending money. Each question arrives with buttons, so answering takes a second.</p></div>
+        <div class="card"><span class="glyph">&#9998;</span><h3>Rules you write once</h3><p>Tell your agents how you want things done. Every agent starts with those rules, on every server.</p></div>
+        <div class="card"><span class="glyph">&#128272;</span><h3>Secrets stay out of the chat</h3><p>Passwords and keys travel through one-time secure forms, never through the conversation.</p></div>
+        <div class="card"><span class="glyph">&#128065;</span><h3>Everything on the record</h3><p>Every step an agent takes is in its conversation, searchable from any device.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="paths" class="alt">
+  <section id="compare" class="alt">
     <div class="wrap">
-      <h2>Who it&rsquo;s for</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>For those new to remote agents&hellip;</h3>
-          <p>Everything here is open source and free. The only bill is a cheap VPS, and Claude Code runs on the allowance already included in your Claude subscription. One <a href="/dev-boxer/">dev-boxer</a> command turns that VPS into an always-on agent box with Claude Code installed and locked down. Chat with it from your desktop or your phone; every device shows the same conversation, so handoff is instant.</p>
-          <p><a href="/dev-boxer/">Set up your first agent box &rarr;</a></p>
-        </div>
-        <div class="card">
-          <h3>&hellip;and those already running Claude Code on every machine</h3>
-          <p>Retire the SSH-from-your-phone routine. Every machine&rsquo;s sessions sit together in one native app, with live tool calls and diffs instead of a terminal squeezed onto a phone screen. You keep the full feature set and gain a few things the terminal never had: context and usage meters, full-text search, push notifications when an agent needs you.</p>
-          <p><a href="#features">See what the apps can do &rarr;</a></p>
-        </div>
+      <h2>How Matron compares with hosted AI assistants</h2>
+      <p class="section-lede">Hosted assistants are quick to start: you sign up and connect your accounts. Matron takes about an hour to set up. In return you own all of it.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison of Matron with hosted AI assistants">
+      <table class="compare">
+        <thead><tr><th></th><th>Matron</th><th>A hosted AI assistant</th></tr></thead>
+        <tbody>
+          <tr><th>Where it runs</th><td>On servers you control</td><td>On the provider&rsquo;s servers</td></tr>
+          <tr><th>The code</th><td>Open source. Read it, change it, fork it</td><td>Usually closed</td></tr>
+          <tr><th>Your data</th><td>Conversations stay on your own server</td><td>Held by the provider</td></tr>
+          <tr><th>What it can connect to</th><td>Anything you can give an agent a tool for</td><td>The integrations the provider offers</td></tr>
+          <tr><th>The AI</th><td>Claude Code or Codex, on the subscription you already pay for</td><td>The provider&rsquo;s choice of model, at the provider&rsquo;s price</td></tr>
+          <tr><th>How it behaves</th><td>Rules you write yourself, in plain words</td><td>The settings the provider gives you</td></tr>
+          <tr><th>How much it can do at once</th><td>As many agents as your servers can hold</td><td>Whatever your plan allows</td></tr>
+        </tbody>
+      </table>
       </div>
     </div>
   </section>
 
-  <section id="features">
+  <section id="takes">
     <div class="wrap">
-      <h2>Everything your agent does, live</h2>
-      <p class="section-lede">Matron shows the conversation as it happens. Tool calls, terminal output, diffs and test runs stream in, and when your agent needs a decision it lands as tappable options: approve, refuse, or type a reply.</p>
+      <h2>What it takes</h2>
+      <p class="section-lede">Matron is free. You bring the rest.</p>
+      <div class="steps">
+        <div class="step"><h3>A small server</h3><p>A VPS for a few dollars a month, or a spare machine at home. One <a href="/dev-boxer/">dev-boxer</a> command turns a fresh Ubuntu box into a locked-down, always-on home for your agents.</p></div>
+        <div class="step"><h3>A Claude or Codex subscription</h3><p>The agents are Claude Code or Codex. They run on the allowance already included in your subscription.</p></div>
+        <div class="step"><h3>About an hour</h3><p>You will type a few commands into a terminal. After that, everything happens in the apps.</p></div>
+      </div>
+      <p style="margin-top:28px"><a href="/dev-boxer/">Set up your first agent server &rarr;</a></p>
+    </div>
+  </section>
+
+  <section id="features" class="alt">
+    <div class="wrap">
+      <h2>Already running Claude Code?</h2>
+      <p class="section-lede">Retire the SSH-from-your-phone routine. Every machine&rsquo;s sessions sit together in one native app, and Matron shows each conversation as it happens. Tool calls, terminal output, diffs and test runs stream in, and when your agent needs a decision it lands as tappable options: approve, refuse, or type a reply.</p>
 
       <div class="showcase">
         <div class="feature">
@@ -197,7 +230,7 @@
     </div>
   </section>
 
-  <section id="fleet" class="alt">
+  <section id="fleet">
     <div class="wrap">
       <h2>Built for running many agents</h2>
       <p class="section-lede">Everything else that comes with it.</p>
@@ -215,10 +248,23 @@
     </div>
   </section>
 
+  <section id="parts" class="alt">
+    <div class="wrap">
+      <h2>What Matron is</h2>
+      <p class="section-lede">Four small open-source parts that snap together. One cheap VPS can run the lot, and all of it is on <a href="https://github.com/Matronhq">GitHub</a> if you want to read the code or fork it.</p>
+      <div class="grid four">
+        <div class="card"><span class="glyph">&#9673;</span><h3>The apps</h3><p>Native <a href="https://apps.apple.com/app/matron/id6791565930">Mac and iPhone</a> and <a href="https://play.google.com/store/apps/details?id=chat.matron.android">Android</a> clients, an <a href="https://github.com/Matronhq/matron-desktop">Electron app</a> for Windows and Linux, and a <a href="https://github.com/Matronhq/matron-web">web client</a>.</p></div>
+        <div class="card"><span class="glyph">&#9636;</span><h3><a href="https://github.com/Matronhq/matron-journal">matron-journal</a></h3><p>The sync server you host: a small Node service backed by SQLite. Every device reads the same conversations from it, live.</p></div>
+        <div class="card"><span class="glyph">&#10231;</span><h3><a href="https://github.com/Matronhq/matron-bridge">matron-bridge</a></h3><p>Runs beside Claude Code or Codex on each dev machine and publishes its sessions to your journal.</p></div>
+        <div class="card"><span class="glyph">&#9635;</span><h3><a href="/dev-boxer/">dev-boxer</a></h3><p>No dev machine? One command turns a fresh Ubuntu VPS into a hardened, always-on agent box.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="how">
     <div class="wrap">
       <h2>How it works</h2>
-      <p class="section-lede">Matron is a remote control, not a cloud IDE: your code and your conversations stay on your own computers. Three pieces make it run, and one box can host all three. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
+      <p class="section-lede">Your agents and your conversations stay on your own computers. Three pieces make it run, and one box can host all three. Each repo&rsquo;s README has the full walkthrough; this is the shape of it.</p>
       <div class="steps">
         <div class="step"><h3>Run the journal server</h3><p>On a $5 VPS (Hetzner and OVH both work well), a box at home, or the same machine your agents run on: <code>npm install &amp;&amp; npm start</code> in <a href="https://github.com/Matronhq/matron-journal">matron-journal</a>, then create your user and an agent token with the bundled <code>matron-admin</code> CLI. Put TLS in front; a reverse proxy or a Cloudflare Tunnel both work.</p></div>
         <div class="step"><h3>Connect the bridge</h3><p>On each dev machine, clone <a href="https://github.com/Matronhq/matron-bridge">matron-bridge</a>, point <code>.env</code> at your journal with the agent token, and <code>npm start</code>. It drives the Claude Code or Codex CLI you already have installed and signed in.</p></div>
