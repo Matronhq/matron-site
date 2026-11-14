@@ -18,5 +18,5 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: 7cb839a74dbd63523b0520143e4af0ca
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy . --project-name matron-site --branch main
