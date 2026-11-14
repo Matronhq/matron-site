@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matron — a control center for everything: your own AI agents, open source and self-hosted</title>
-<meta name="description" content="Matron runs a team of AI agents on servers you control. They take on work like email, finance and technical jobs, and you steer them from native iPhone, Mac and Android apps. Open source and self-hosted.">
+<title>Matron — design and build with AI agents on your own server</title>
+<meta name="description" content="Explore design directions, build a small app and keep shaping it from your phone. Open source, with Claude Code or Codex on your own server.">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=7">
-<meta property="og:title" content="Matron — a control center for everything: your own AI agents, open source and self-hosted">
-<meta property="og:description" content="A control center for everything. Run a team of AI agents on servers you control and steer them from your phone. Open source and self-hosted.">
+<link rel="stylesheet" href="/style.css?v=8">
+<meta property="og:title" content="Matron — design and build with AI agents on your own server">
+<meta property="og:description" content="Explore design directions, build a small app and keep shaping it from your phone. Open source, with Claude Code or Codex on your own server.">
 <meta property="og:image" content="https://matron.chat/assets/og-image.png">
 <meta property="og:url" content="https://matron.chat/">
 <meta property="og:type" content="website">
@@ -37,41 +37,40 @@
 <main>
   <div class="wrap hero">
     <div>
-      <h1>A control center for everything</h1>
-      <p class="lede">Matron runs a team of AI agents on servers you control. They take on the work you hand them: email, finance, research, technical jobs. You tell them what you want from your phone, and they come back to you only when they need a decision. It&rsquo;s open source, and you host it yourself.</p>
+      <h1>Turn an idea into something you can use.</h1>
+      <p class="lede">Design an app, build a tracker, research a market or make a report. Give your agent the brief from your phone. It works on your server and brings you back to the result.</p>
       <div class="cta-row">
-        <a class="btn primary" href="https://apps.apple.com/app/matron/id6791565930">Download on the App&nbsp;Store</a>
-        <a class="btn ghost" href="https://play.google.com/store/apps/details?id=chat.matron.android">Get it on Google&nbsp;Play</a>
-        <span class="cta-note">iPhone, Mac, Android, Windows and Linux &middot; open source &middot; self-hosted</span>
+        <a class="btn primary" href="#work">See what you can make</a>
+        <a class="btn ghost" href="/getting-started/">Set up Matron</a>
+        <span class="cta-note">Open source &middot; your own server &middot; your Claude Code or Codex account</span>
       </div>
     </div>
 
-    <div class="duo">
-      <figure class="shot mac">
-        <img src="/assets/screens/mac-01-handoff.png" width="1280" height="800"
-             alt="A Matron conversation open in the Mac app: a failing test card, a diff, the passing rerun, and a PR prompt">
-      </figure>
-      <figure class="shot phone">
-        <img src="/assets/screens/ios-02-agent-chat-2x.png" width="660" height="1434"
-             alt="The exact same conversation open in Matron on iPhone, showing identical messages">
-      </figure>
+    <div class="build-preview">
+      <p class="example-label">Example brief</p>
+      <blockquote>“Make three visual directions for a fitness tracker: calm, bold and playful.”</blockquote>
+      <div class="direction-previews" aria-label="Three sample visual directions">
+        <a class="mini-direction calm" href="/examples/design-directions/#calm"><span>01 / Calm</span><strong>Field<br>notes.</strong><i aria-hidden="true"></i></a>
+        <a class="mini-direction bold" href="/examples/design-directions/#bold"><span>02 / Bold</span><strong>MAKE<br>MOVES.</strong><i aria-hidden="true"></i></a>
+        <a class="mini-direction playful" href="/examples/design-directions/#playful"><span>03 / Playful</span><strong>Small<br>wins ✳</strong><i aria-hidden="true"></i></a>
+      </div>
+      <div class="result-note"><span class="example-label">Example result notice</span><strong>Three directions are ready to compare.</strong><a href="/examples/design-directions/">Open the sample design page →</a></div>
+      <p class="example-caption">Illustrative output for this brief. Your agent will make its own designs.</p>
     </div>
 
   </div>
 
   <section id="work">
     <div class="wrap">
-      <h2>What your agents can do</h2>
-      <p class="section-lede">An agent is an AI that does the work instead of describing it. Give it access to something and it can read, decide and act there, around the clock.</p>
-      <div class="grid">
-        <div class="card"><span class="glyph">&#9993;</span><h3>Email</h3><p>Read what comes in and draft the replies for you to approve.</p></div>
-        <div class="card"><span class="glyph">&#36;</span><h3>Finance</h3><p>Keep track of bills, receipts and payments, and flag what needs your attention.</p></div>
-        <div class="card"><span class="glyph">&#128269;</span><h3>Research</h3><p>Look things up, compare the options and write up what they found.</p></div>
-        <div class="card"><span class="glyph">&#10100;&#10101;</span><h3>Technical jobs</h3><p>Build things, fix things and keep them running: websites, code, servers.</p></div>
-        <div class="card"><span class="glyph">&#128230;</span><h3>Errands</h3><p>Book a delivery, place an order, fill in a form. Agents can use a website the way you would.</p></div>
-        <div class="card"><span class="glyph">&#10010;</span><h3>Anything else</h3><p>If a service can be reached by software, an agent can work with it.</p></div>
+      <h2>What would you like to make or find out?</h2>
+      <p class="section-lede">Give your agent a brief and get a result you can use: a design to compare, an app to try or a report to read. A notice brings you back to the finished work, ready for your next change.</p>
+      <div class="grid two examples-grid">
+        <article class="card"><span class="example-label">Explore a direction</span><h3>See three ways your app could look</h3><blockquote>“Show colors, typography and a sample screen for each direction. Put them in one page I can compare.”</blockquote><p><strong>The result:</strong> a visual design page, with a notice linking to it when it is ready.</p><a class="btn ghost" href="/examples/design-directions/">Compare the sample designs</a></article>
+        <article class="card"><span class="example-label">Build something useful</span><h3>Turn your choice into a fitness tracker</h3><blockquote>“Use the calm direction. Let me log an activity and its duration, then see my weekly total.”</blockquote><p><strong>The result:</strong> a small app you can use, download and ask to change. This example stores records in your browser and can export them.</p><a class="btn ghost" href="/examples/fitness-tracker/">Try the working tracker</a></article>
+        <article class="card"><span class="example-label">Research a market</span><h3>Find out where an idea could fit</h3><blockquote>“Research the market for a simple workout log. Compare five alternatives, their audiences and current prices. Link to your sources and separate evidence from guesses.”</blockquote><p><strong>Ask for:</strong> a dated comparison, gaps worth exploring and questions to test with potential users, delivered as a report with sources.</p></article>
+        <article class="card"><span class="example-label">Make a report</span><h3>Turn a pile of notes into a clear next step</h3><blockquote>“Turn these notes into a two-page project report: what we learned, what is still uncertain and the next three actions. Share the finished report when it is ready.”</blockquote><p><strong>Ask for:</strong> a concise report you can read, download and share, with a notice linking to the finished file.</p></article>
       </div>
-      <p class="honesty">You decide what each agent can reach. You connect a service by giving your agents a tool for it: a connector (an MCP server), a command-line program or an API key. Matron is where you run the agents, see what they are doing and answer their questions.</p>
+      <p class="honesty">These sample outputs show one possible result. Explore them here, then try the briefs with your own agent. Email and other service connections are not included.</p>
     </div>
   </section>
 
