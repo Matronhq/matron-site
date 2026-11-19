@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three directions for a fitness tracker — Matron example</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#202820;font:17px/1.55 system-ui,sans-serif}a{color:inherit;text-underline-offset:4px}header,main,footer{max-width:1200px;margin:auto;padding:28px}header{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid #d7d9cf}header strong{font-family:monospace;font-size:21px}.label{font-size:12px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:#536153}h1{font-size:clamp(35px,5vw,62px);line-height:1.08;letter-spacing:-.04em;max-width:800px;margin:18px 0}main>p{max-width:720px;color:#536153}.directions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:40px 0}.direction{border:1px solid #bfc7b9;border-radius:20px;padding:24px;background:white;min-width:0}.direction h2{font-size:24px;margin:8px 0}.direction>p{font-size:15px;color:#536153}.swatches{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.swatch{width:34px;height:34px;border:1px solid #73816e;border-radius:50%}.palette{font-size:12px!important;overflow-wrap:anywhere}.phone{border:2px solid #202820;border-radius:27px;padding:22px 18px;min-height:370px;margin:24px 0;overflow:hidden}.phone .name{font-size:15px;font-weight:700}.phone h3{font-size:28px;line-height:1.15;margin:30px 0 16px}.stat{font-size:43px;line-height:1;font-weight:750}.stat small{display:block;font-size:13px;font-weight:500;margin-top:10px}.days{display:flex;gap:7px;align-items:end;height:78px;margin:20px 0 7px}.days span{flex:1;background:currentColor;border-radius:5px 5px 0 0;min-height:8px}.days-label{font-size:11px;display:flex;justify-content:space-between}.activity{display:flex;justify-content:space-between;gap:8px;padding:12px 0;border-top:1px solid currentColor;font-size:13px}.calm .phone{background:#eef3e8;color:#304b37;font-family:Georgia,serif}.bold .phone{background:#152449;color:#eff5ff;font-family:system-ui,sans-serif}.bold .days{color:#bcec68}.playful .phone{background:#fff0df;color:#623d5d;font-family:ui-rounded,system-ui,sans-serif}.playful .days{color:#a75426}.next{padding:26px;border-radius:16px;background:#e7edde}.next a{display:inline-block;margin-top:8px;font-weight:700}footer{font-size:14px;color:#536153}button,a{touch-action:manipulation}:focus-visible{outline:3px solid #2867a1;outline-offset:5px}@media(max-width:850px){.directions{grid-template-columns:1fr}.phone{max-width:320px;margin-left:auto;margin-right:auto}header,main,footer{padding:22px}.direction{padding:22px}}
+
+.example-bar{position:sticky;top:0;z-index:10;max-width:none;margin:0;padding:0;background:#202820;color:white;border:0;font:14px/1.4 system-ui,sans-serif}.example-bar .bar-inner{width:100%;max-width:1200px;margin:auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.example-bar a{color:white}.example-bar span{font-weight:700}
+</style>
+</head>
+<body>
+<header class="example-bar"><div class="bar-inner"><span>Worked example · 1 of 2</span><a href="/">&larr; Back to Matron</a></div></header>
+<main>
+<p class="label">Fitness tracker / Design directions</p>
+<h1>First, explore three designs.</h1>
+<p><strong>The brief:</strong> “Show me three visual directions for a fitness tracker: calm, bold and playful.” These are sample results for that brief.</p>
+<div class="directions">
+<article class="direction calm" id="calm">
+<p class="label">01 / Calm</p><h2>Field notes</h2><p>A quiet place to record the work you did. Soft greens, generous space and a warm serif headline.</p>
+<div class="swatches" aria-hidden="true"><span class="swatch" style="background:#eef3e8"></span><span class="swatch" style="background:#304b37"></span><span class="swatch" style="background:#c1d2b4"></span></div><p class="palette">#EEF3E8 · #304B37 · #C1D2B4<br>Type: Georgia + system sans-serif</p>
+<div class="phone" role="img" aria-label="Calm sample screen: Field notes, 95 minutes logged this week, walking and swimming entries"><div class="name">Field notes</div><h3>A little progress,<br>written down.</h3><div class="stat">95<small>minutes logged this week</small></div><div class="days" aria-hidden="true"><span style="height:40%"></span><span style="height:75%"></span><span style="height:15%"></span><span style="height:100%"></span><span style="height:50%"></span></div><div class="activity"><span>Walking</span><strong>25 min</strong></div><div class="activity"><span>Swimming</span><strong>30 min</strong></div></div>
+<p><strong>Best for:</strong> a personal log you want to return to without scores or streaks.</p>
+</article>
+<article class="direction bold" id="bold">
+<p class="label">02 / Bold</p><h2>Momentum</h2><p>A punchy dashboard with a clear weekly total. Dark blue, bright chart bars and heavy sans-serif type.</p>
+<div class="swatches" aria-hidden="true"><span class="swatch" style="background:#152449"></span><span class="swatch" style="background:#bcec68"></span><span class="swatch" style="background:#eff5ff"></span></div><p class="palette">#152449 · #BCEC68 · #EFF5FF<br>Type: system sans-serif, bold weights</p>
+<div class="phone" role="img" aria-label="Bold sample screen: Momentum, 95 minutes this week with bright green chart bars"><div class="name">MOMENTUM</div><h3>Put your week<br>on the board.</h3><div class="stat">95<small>MINUTES THIS WEEK</small></div><div class="days" aria-hidden="true"><span style="height:40%"></span><span style="height:75%"></span><span style="height:15%"></span><span style="height:100%"></span><span style="height:50%"></span></div><div class="activity"><span>Walking</span><strong>25 MIN</strong></div><div class="activity"><span>Swimming</span><strong>30 MIN</strong></div></div>
+<p><strong>Best for:</strong> a compact dashboard where the numbers are the main event.</p>
+</article>
+<article class="direction playful" id="playful">
+<p class="label">03 / Playful</p><h2>Small wins</h2><p>Friendly, rounded and a little less serious. Warm peach, plum text and simple shapes.</p>
+<div class="swatches" aria-hidden="true"><span class="swatch" style="background:#fff0df"></span><span class="swatch" style="background:#623d5d"></span><span class="swatch" style="background:#a75426"></span></div><p class="palette">#FFF0DF · #623D5D · #A75426<br>Type: rounded system sans-serif</p>
+<div class="phone" role="img" aria-label="Playful sample screen: Small wins, 95 minutes this week in peach and plum"><div class="name">small wins ✳</div><h3>Your week,<br>one entry at a time.</h3><div class="stat">95<small>minutes worth remembering</small></div><div class="days" aria-hidden="true"><span style="height:40%"></span><span style="height:75%"></span><span style="height:15%"></span><span style="height:100%"></span><span style="height:50%"></span></div><div class="activity"><span>Walking</span><strong>25 min</strong></div><div class="activity"><span>Swimming</span><strong>30 min</strong></div></div>
+<p><strong>Best for:</strong> an approachable tracker that makes a small daily task feel lighter.</p>
+</article>
+</div>
+<div class="next"><strong>Next, turn one design into an app.</strong><p>Choose the calm direction and ask for a tracker that logs activities and totals the week.</p><a href="/examples/fitness-tracker/">Open example 2: the working tracker &rarr;</a></div>
+</main>
+<footer>Sample designs with fictional entries. <a href="/">Return to the Matron website</a>.</footer>
+</body>
+</html>

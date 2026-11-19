@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field notes — example workout tracker</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef3e8;color:#263d2e;font:16px/1.55 system-ui,sans-serif}a{color:inherit;text-underline-offset:4px}header,main,footer{max-width:880px;margin:auto;padding:26px}header{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid #b8c7ae;flex-wrap:wrap}.brand{font:bold 23px Georgia,serif}.tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}h1{font:clamp(36px,6vw,58px)/1.1 Georgia,serif;letter-spacing:-.035em;margin:18px 0}.intro{max-width:600px;color:#4d604b}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}.stat,.panel{background:#fbfcf7;border:1px solid #b8c7ae;border-radius:16px;padding:24px}.stat strong{display:block;font:42px Georgia,serif}.stat span{font-size:14px;color:#4d604b}h2{font:25px Georgia,serif;margin:0 0 20px}.panel{margin:20px 0}form{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:16px}label{font-size:14px;font-weight:650;display:block}input,button{font:inherit}input{width:100%;min-width:0;margin-top:7px;border:1px solid #7d9272;border-radius:8px;padding:11px;background:white;color:#263d2e}button{cursor:pointer;border:1px solid #304b37;border-radius:8px;background:#304b37;color:white;padding:11px 16px;min-height:44px}form button{grid-column:1/-1;justify-self:start}.tools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px}.tools a,.tools button{font-size:14px}.tools button,.remove{color:#304b37;background:transparent}.log{list-style:none;margin:0;padding:0}.log li{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;border-top:1px solid #d3ddcb;padding:16px 0}.log li:first-child{border-top:0}.log strong{display:block;overflow-wrap:anywhere}.log small{color:#53664e}.remove{font-size:13px;padding:8px}.empty{color:#53664e}.status{min-height:24px;margin:14px 0 0;color:#405a3b;font-size:14px}.week{font-size:14px;color:#53664e;margin-top:-10px}footer{font-size:13px;color:#53664e}:focus-visible{outline:3px solid #1a62b5;outline-offset:4px}@media(max-width:620px){header,main,footer{padding:20px}form{grid-template-columns:1fr}.stats{gap:10px}.stat,.panel{padding:19px}.log li{gap:10px}.log li>span{font-size:14px}}
+
+.example-bar{position:sticky;top:0;z-index:10;max-width:none;margin:0;padding:0;background:#202820;color:white;border:0;font:14px/1.4 system-ui,sans-serif}.example-bar .bar-inner{width:100%;max-width:1200px;margin:auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.example-bar a{color:white}.example-bar span{font-weight:700}
+</style>
+</head>
+<body>
+<header class="example-bar"><div class="bar-inner"><span>Worked example · 2 of 2</span><a href="https://matron.chat/">&larr; Back to Matron</a></div></header>
+<main>
+<p class="tag">Example app / Field notes fitness tracker</p>
+<h1>A little progress,<br>written down.</h1>
+<p class="intro">Log an activity and how long you spent on it. This small prototype runs entirely in your browser, without an account or a server.</p>
+<div class="stats"><div class="stat"><strong id="minutes">0</strong><span>minutes this week</span></div><div class="stat"><strong id="sessions">0</strong><span>entries this week</span></div></div>
+<p class="week" id="week"></p>
+<section class="panel" aria-labelledby="add-title"><h2 id="add-title">Add to your log</h2>
+<form id="entry-form"><label>Activity<input id="activity" name="activity" required maxlength="80" placeholder="e.g. Walking" autocomplete="off"></label><label>Minutes<input id="duration" name="duration" type="number" min="1" max="1440" step="1" required placeholder="25"></label><label>Date<input id="date" name="date" type="date" required></label><button id="save" type="submit">Save activity</button></form>
+<p id="feedback" class="status" role="status" aria-live="polite"></p></section>
+<section class="panel" aria-labelledby="log-title"><h2 id="log-title">Your entries</h2><p id="empty" class="empty">Your log is empty. Add an activity above to try it.</p><ul id="log" class="log"></ul><div class="tools"><button id="export" type="button">Export records</button><a id="download" href="./index.html" download="fitness-tracker.html">Download this app</a></div></section>
+<p id="storage" class="status">Records stay in this browser on this device. They are not sent anywhere or synced to another device. Clearing browser data removes them; export a copy if you want to keep them.</p>
+</main>
+<footer>End of the worked example. <a href="https://matron.chat/examples/design-directions/">View the design directions</a> or <a href="https://matron.chat/">return to Matron</a>.</footer>
+<script>
+(() => {
+  'use strict';
+  const key = 'matron-example-fitness-v1';
+  const byId = id => document.getElementById(id);
+  byId('download').href = location.href.split('#')[0];
+  const localDate = date => `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+  const validDate = value => /^\d{4}-\d{2}-\d{2}$/.test(value) && localDate(new Date(value+'T12:00:00')) === value;
+  const validEntry = entry => entry && typeof entry.id === 'string' && typeof entry.activity === 'string' && entry.activity.trim().length > 0 && entry.activity.length <= 80 && Number.isInteger(entry.minutes) && entry.minutes > 0 && entry.minutes <= 1440 && typeof entry.date === 'string' && validDate(entry.date);
+  let entries = [], persistent = true;
+  function storageUnavailable() { persistent = false; byId('storage').textContent = 'Saving is unavailable in this browser or preview. Your entries last only for this visit; use Export records to keep a copy.'; }
+  try {
+    const saved = JSON.parse(localStorage.getItem(key) || '[]');
+    if (!Array.isArray(saved) || !saved.every(validEntry)) throw new Error('Invalid saved records');
+    entries = saved;
+  } catch { storageUnavailable(); }
+  function save() { if (persistent) { try { localStorage.setItem(key, JSON.stringify(entries)); } catch { storageUnavailable(); } } }
+  function render() {
+    const now = new Date(), start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12);
+    start.setDate(start.getDate() - (start.getDay()+6)%7);
+    const end = new Date(start); end.setDate(end.getDate()+6);
+    const weekEntries = entries.filter(entry => entry.date >= localDate(start) && entry.date <= localDate(end));
+    byId('minutes').textContent = weekEntries.reduce((sum, entry) => sum + entry.minutes, 0);
+    byId('sessions').textContent = weekEntries.length;
+    byId('week').textContent = `This week: ${start.toLocaleDateString(undefined,{month:'short',day:'numeric'})} – ${end.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`;
+    byId('empty').hidden = entries.length > 0;
+    byId('log').replaceChildren();
+    [...entries].sort((a,b) => b.date.localeCompare(a.date)).forEach(entry => {
+      const li = document.createElement('li'), detail = document.createElement('div'), title = document.createElement('strong'), date = document.createElement('small'), duration = document.createElement('span'), remove = document.createElement('button');
+      title.textContent = entry.activity; date.textContent = new Date(entry.date+'T12:00:00').toLocaleDateString(); duration.textContent = `${entry.minutes} min`;
+      remove.type = 'button'; remove.className = 'remove'; remove.textContent = 'Delete'; remove.setAttribute('aria-label',`Delete ${entry.activity} on ${entry.date}`);
+      remove.addEventListener('click', () => { entries = entries.filter(item => item.id !== entry.id); save(); render(); byId('feedback').textContent = `Deleted ${entry.activity}.`; });
+      detail.append(title,date); li.append(detail,duration,remove); byId('log').append(li);
+    });
+  }
+  byId('date').value = localDate(new Date());
+  function saveEntry(event) {
+    event.preventDefault();
+    if (!byId('entry-form').reportValidity()) return;
+    const entry = {id:globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`, activity:byId('activity').value.trim(), minutes:Number(byId('duration').value), date:byId('date').value};
+    if (!validEntry(entry)) { byId('feedback').textContent = 'Enter an activity, a whole number of minutes from 1 to 1440, and a valid date.'; return; }
+    entries.push(entry); save(); render();
+    byId('activity').value = ''; byId('duration').value = ''; byId('activity').focus();
+    byId('feedback').textContent = persistent ? `Saved ${entry.activity}.` : `Added ${entry.activity} for this visit. Export to keep a copy.`;
+  }
+  // Handle the click before a sandbox can block native form submission.
+  byId('save').addEventListener('click', saveEntry);
+  byId('entry-form').addEventListener('submit', saveEntry);
+  byId('export').addEventListener('click', () => {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(entries,null,2)],{type:'application/json'}));
+    const link = document.createElement('a'); link.href = url; link.download = 'workout-log.json'; link.click();
+    setTimeout(() => URL.revokeObjectURL(url),1000);
+    byId('feedback').textContent = 'Your records are ready to download.';
+  });
+  render();
+})();
+</script>
+</body>
+</html>

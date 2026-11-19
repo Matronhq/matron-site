@@ -35,18 +35,16 @@
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <h1>One command to an always-on agent box</h1>
-      <p class="lede">dev-boxer takes a fresh <strong>Ubuntu 24.04</strong> machine, whether that&rsquo;s a $5 VPS, a home server or a Raspberry Pi, and builds the whole environment: Claude Code, the Matron bridge, and a proper set of dev tools. It comes out hardened and reachable from anywhere, and it stays yours.</p>
+      <h1>An agent box with developer tools</h1>
+      <p><strong>New to Matron?</strong> Start with the <a href="/getting-started/">four-step guide</a>. This page covers the advanced developer setup.</p>
+      <p class="lede">dev-boxer takes a fresh <strong>Ubuntu 24.04</strong> machine, whether that&rsquo;s a rented VPS, a home server or a Raspberry Pi, and builds the whole environment: Claude Code, the Matron bridge, and a proper set of dev tools. It comes out hardened and reachable from anywhere, and it stays yours.</p>
       <div class="cmdbox">
         <span class="prompt" aria-hidden="true">$</span>
-        <code>curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash</code>
+        <code style="white-space:normal;overflow-wrap:anywhere">curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash -s -- --advanced</code>
         <button type="button" data-copy aria-label="Copy install command">Copy</button>
       </div>
       <p class="cmd-note">That&rsquo;s the whole install: run it on a fresh Ubuntu 24.04 box and answer the wizard. Prefer to read first? <a href="https://github.com/Matronhq/dev-boxer">dev-boxer on GitHub</a> &middot; <a href="/#download">get the Matron app</a></p>
-      <figure class="shot wide" style="margin-top:44px">
-        <img src="/assets/screens/devboxer-terminal.png" width="1520" height="1212"
-             alt="dev-boxer's installer running in a terminal: the module plan, then security hardening and Claude Code setup steps completing with green check marks">
-      </figure>
+      <p class="cmd-note">The advanced path installs developer tools and optional desktop components. For the minimal browser-and-chat setup, follow the four-step guide above.</p>
     </div>
   </section>
 
@@ -66,12 +64,12 @@
 
   <section>
     <div class="wrap">
-      <h2>One command, eleven modules</h2>
-      <p class="section-lede">A short wizard asks for the essentials (username, SSH key, domain or no domain, where the journal lives), then eleven idempotent modules do the rest. Each one can be re-run on its own, so you can pick up from a failure or skip what you don&rsquo;t need.</p>
+      <h2>Advanced developer setup</h2>
+      <p class="section-lede">A short wizard asks for the essentials (username, SSH key, domain or no domain, where the journal lives), then repeatable setup steps do the rest. Each one can be re-run on its own, so you can pick up from a failure or skip what you don&rsquo;t need.</p>
       <div class="card reqs">
         <h3>What you need</h3>
         <ul>
-          <li>A fresh <strong>Ubuntu 24.04</strong> box with sudo access: a ~$5 VPS, a spare machine at home, or a VM (Multipass, OrbStack, Hyper-V).</li>
+          <li>A fresh <strong>Ubuntu 24.04</strong> box with sudo access: a VPS, a spare machine at home, or a VM (Multipass, OrbStack, Hyper-V).</li>
           <li>An SSH key pair.</li>
           <li>A <strong>Claude subscription</strong> for Claude Code to sign in with; it runs on the allowance your plan already includes.</li>
           <li><strong>Domain route:</strong> a Cloudflare account with your domain on it and a zone DNS API token, plus optionally a one-time setup token so dev-boxer can create the tunnel and Access app for you.</li>

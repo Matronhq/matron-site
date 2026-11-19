@@ -171,6 +171,15 @@ nav.main a:hover { text-decoration: underline; }
 
 .cta-note { font-size: 14px; color: var(--ink-soft); width: 100%; }
 
+/* Product positioning and the entry into the separate worked example. */
+.ownership-note { margin: 28px 0 0; color: var(--ink-soft); font-size: 15.5px; max-width: 58em; }
+.product-caption { margin: 14px 0 0; color: var(--ink-soft); font-size: 14px; text-align: center; }
+.worked-example { display: flex; gap: 28px; align-items: center; justify-content: space-between; margin-top: 30px; padding: 28px; border: 1px solid var(--ink-soft); border-radius: 12px; background: var(--cream-dark); }
+.worked-example h3 { margin: 0 0 6px; font-size: 21px; }
+.worked-example p { margin: 0; color: var(--ink-soft); max-width: 38em; }
+.worked-example .btn { flex-shrink: 0; }
+@media (max-width: 640px) { .worked-example { align-items: start; flex-direction: column; padding: 22px; gap: 18px; } }
+
 /* ---------- real app screenshots ---------- */
 
 .shot { margin: 0; }

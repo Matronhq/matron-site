@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get started in four steps — Matron</title>
+<meta name="description" content="Get a server, run the guided installer, start your first chat, and add more computers when you need them.">
+<link rel="canonical" href="https://matron.chat/getting-started/">
+<link rel="icon" type="image/png" href="/assets/favicon-32.png">
+<link rel="stylesheet" href="/style.css?v=10">
+<link rel="stylesheet" href="./guide.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <img src="/assets/icon-256.png" alt="" width="36" height="36"><a class="brand" href="/">matron</a>
+  <nav class="main" id="nav"><a href="/">Home</a><a href="/getting-started/" aria-current="page">Get started</a><a href="https://github.com/Matronhq">GitHub</a><a href="/support/">Support</a></nav>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
+</div></header>
+<main class="guide wrap">
+  <div class="guide-intro">
+    <p class="eyebrow">YOUR FIRST MATRON</p>
+    <h1>A computer that works.<br>A place to talk to it.</h1>
+    <p class="lede">Rent a small computer that stays on. Run one guided setup. Open Matron and give your first agent a job.</p>
+    <p>An <strong>agent</strong> is an AI that can use tools and carry out work. A <strong>box</strong> is a computer it runs on. You can start with one.</p>
+    <p>This guide sets up text chat and file sharing. Email and other service integrations are not included.</p>
+    <div class="before"><strong>Before you buy:</strong> you need a computer for the initial setup, an SSH key, and a Claude Code or Codex account with access to its command-line app. The server and AI usage are separate bills. Matron is open source; it does not include either subscription.</div>
+  </div>
+  <nav class="step-nav" aria-label="Setup steps"><a href="#vps">1. Get a VPS</a><a href="#install">2. Run the script</a><a href="#first-chat">3. Start a chat</a><a href="#boxes">4. Add more boxes</a></nav>
+
+  <section class="onboarding-step" id="vps" aria-labelledby="vps-title">
+    <div class="step-heading"><span class="step-number" aria-hidden="true">1</span><div><p class="eyebrow">START HERE</p><h2 id="vps-title">Get a VPS</h2></div></div>
+    <p>A VPS is a rented computer on the internet. Order a <strong>fresh Ubuntu 24.04 server, x86-64, with at least 2 CPUs, 4 GB RAM, 40 GB disk and a stable public IPv4 address</strong>. Choose a location near you. Larger jobs or several agents may need more memory.</p>
+    <p>Compare these budget options. Start with a short commitment while trying Matron; the lowest advertised monthly equivalent can require a longer contract.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="VPS provider comparison"><table>
+      <caption>Provider offers checked 14 November 2026. These are starting prices, not checkout quotes or performance benchmarks.</caption>
+      <thead><tr><th>Provider</th><th>Example size</th><th>Price and terms to check</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://contabo.com/en/vps/">Contabo Cloud VPS 4</a></td><td>4 CPUs · 8 GB · 100 GB SSD</td><td>Advertised from €5.50/month. Region, tax and term affect the total. Its entry Core VPS 4 has a <a href="https://help.contabo.com/en/support/solutions/articles/103000398194-why-is-there-a-setup-fee-on-my-core-vps-4-storage-vps-10-order-">setup fee on a one-month contract</a>; compare the first bill as well as renewal.</td></tr>
+        <tr><td><a href="https://www.ovhcloud.com/en-gb/vps/">OVHcloud VPS-1</a></td><td>2 CPUs · 4 GB · 40 GB NVMe</td><td>UK page: from £3.31 excluding VAT (£3.97 including VAT) per month. Confirm commitment, location and renewal price in its configurator.</td></tr>
+        <tr><td><a href="https://www.netcup.com/en/server/vps-lite">netcup VPS Lite 1</a></td><td>2 CPUs · 4 GB · 80 GB SSD</td><td>From €5.86/month including German 19% VAT, with a six-month contract. Your country changes VAT; available locations vary.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">Before paying, confirm Ubuntu 24.04, included public IPv4, root or sudo access, cancellation terms, setup fees and the total after any discount ends. Avoid shared web hosting, IPv6-only plans and preinstalled control panels for this guide.</p>
+    <details><summary>Create an SSH key and connect</summary>
+      <p>An SSH key lets your computer sign into the server. On your own computer, open Terminal on macOS/Linux or PowerShell on Windows and run:</p>
+      <div class="command"><pre><code id="key-command">ssh-keygen -t ed25519</code></pre><button type="button" data-copy="key-command">Copy</button></div>
+      <p>Accept the suggested location only if it does not replace an existing key. Choose a passphrase. Upload the <strong>public</strong> key to the VPS dashboard when it asks for an SSH key. Keep the private key on your computer.</p>
+      <p>To display the public key on macOS/Linux:</p><pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+      <p>On Windows PowerShell:</p><pre><code>Get-Content $HOME\.ssh\id_ed25519.pub</code></pre>
+      <p>Use the SSH connection command in your provider's dashboard, or its browser console. It supplies the initial username and IP address. If it uses an initial password, enter that only in the server login prompt. Keep this connection open until setup finishes.</p>
+    </details>
+    <p>In the provider's firewall, allow incoming TCP ports <strong>22, 80, 443 and 8444</strong>. Port 80 is needed again for automatic certificate renewal. You do not need a domain name for your first chat.</p>
+    <div class="expected"><strong>You should now have:</strong> a server terminal ready for the next command, its public IPv4 address, and your SSH public key.</div>
+  </section>
+
+  <section class="onboarding-step" id="install" aria-labelledby="install-title">
+    <div class="step-heading"><span class="step-number" aria-hidden="true">2</span><div><p class="eyebrow">ONE GUIDED SETUP</p><h2 id="install-title">Run this script</h2></div></div>
+    <p>Paste this into the <strong>new VPS's terminal</strong>. The installer configures the server, including its SSH login and firewall, so use a fresh VPS for this path.</p>
+    <div class="command"><pre><code id="install-command">curl -fsSL https://raw.githubusercontent.com/matronhq/dev-boxer/main/install.sh | sudo bash</code></pre><button type="button" data-copy="install-command">Copy</button></div>
+    <p class="small"><a href="https://github.com/Matronhq/dev-boxer/blob/main/install.sh">Read the installer</a> · <a href="https://github.com/Matronhq/dev-boxer">Source and advanced installation</a></p>
+    <ol class="instructions">
+      <li>Choose <strong>1 — Set up my first Matron</strong>.</li>
+      <li>Choose a sign-in name and your AI provider: <strong>claude</strong> or <strong>codex</strong>.</li>
+      <li>Enter the VPS's public IPv4 address, accept the certificate terms, and confirm your SSH public key.</li>
+      <li>Let setup install the parts. When prompted, open the AI provider's sign-in link on your own computer. Follow its instructions, then return to the terminal. For Codex, you may need to enable device-code sign-in in your account's security settings.</li>
+      <li>Open the <strong>Open Matron</strong> address it prints. Sign in with the name and generated password shown in your terminal. Save the password in your password manager. A short-lived QR also lets you sign in from the Matron phone app.</li>
+    </ol>
+    <p class="small">Sign-in help: <a href="https://code.claude.com/docs/en/authentication">Claude Code</a> · <a href="https://learn.chatgpt.com/docs/auth?surface=cli">Codex</a>.</p>
+    <p>Behind the scenes, setup installs the browser app, your conversation store (the journal), the connection to the AI (the bridge), and a file viewer. It sets up trusted HTTPS, automatic startup, and one AI provider. This starter setup uses text chat; voice transcription and development extras are optional advanced configuration.</p>
+    <p class="small">This is your own computer, and the agent account can administer it with sudo. Add only accounts and data you intend it to use.</p>
+    <div class="expected"><strong>Next time you connect by SSH:</strong> use <code>ssh dev@YOUR_VPS_IP</code>. Setup keeps port 22, installs your key, and disables root and password SSH login. Try this in a second terminal before closing the first.</div>
+  </section>
+
+  <section class="onboarding-step" id="first-chat" aria-labelledby="first-chat-title">
+    <div class="step-heading"><span class="step-number" aria-hidden="true">3</span><div><p class="eyebrow">CHECK IT WORKS</p><h2 id="first-chat-title">Start your first chat</h2></div></div>
+    <p>In Matron, click the pencil button (<strong>New session</strong>), then choose your box if asked. Leave <strong>Folder path</strong> blank to use the prepared <strong>work</strong> folder, then click <strong>Start</strong>.</p>
+    <div class="first-job"><strong>Make something you can look at</strong><p>Send:</p><blockquote>Create three visual directions for a simple fitness tracker: calm, bold and playful. Show colors, typography and a sample screen for each in one self-contained HTML page. Save it as design-directions.html, share a preview link, and put a notice in For you linking to the finished page.</blockquote><p>Your agent makes the page, then sends you a notice with the result. Open it from <strong>For you</strong> and compare the three directions. <a href="/examples/design-directions/">Open the separate worked example</a>; your agent's result will be different.</p></div>
+    <p>Once you have a direction you like, ask it to build a small app from it. For example: “Use the calm direction to make a workout tracker where I can log an activity and its duration, then see my weekly total. Keep it in one HTML file I can download and open in my browser.”</p>
+    <p>If the agent cannot reply, reconnect to the VPS and run <code>sudo matron login</code> to check your AI sign-in. The <a href="#help">recovery commands below</a> help with other setup problems.</p>
+    <div class="expected"><strong>You should now have:</strong> a finished design page and a notice linking to it. A chat reply or a running service alone does not prove the work is ready.</div>
+  </section>
+
+  <section class="onboarding-step" id="boxes" aria-labelledby="boxes-title">
+    <div class="step-heading"><span class="step-number" aria-hidden="true">4</span><div><p class="eyebrow">OPTIONAL · WHEN YOU NEED MORE ROOM</p><h2 id="boxes-title">Want more boxes?</h2></div></div>
+    <p>Get another fresh VPS using step 1. Run <a href="#install">the same script</a> on it and choose <strong>2 — Add a box to my Matron</strong>.</p>
+    <p>Use your existing sign-in name, choose its AI provider, then enter your existing Matron HTTPS address without <code>/app/</code>. Setup shows a pairing code: sign into your existing Matron and approve this box there.</p>
+    <p>Sign into the AI provider on the new box when prompted. It appears alongside your first box in Matron. It uses the same journal and has its own revocable connection; there is no need to copy passwords or AI sign-in files between servers.</p>
+    <p>For a computer you already own, use the separate <a href="https://github.com/Matronhq/matron-bridge#readme">bridge installation guide</a>.</p>
+    <div class="expected"><strong>You should now see:</strong> both boxes when starting a chat. Try a short chat on the new one before giving it a job.</div>
+  </section>
+
+  <section class="help" id="help" aria-labelledby="help-title">
+    <h2 id="help-title">If you get stuck</h2>
+    <p>Reconnect with <code>ssh dev@YOUR_VPS_IP</code>. If setup stopped before creating that account, use the provider's original login or browser console.</p>
+    <dl class="recovery"><dt>Setup stopped or the connection dropped</dt><dd>Run the installer command again. It resumes using your saved settings and installed version. If available, <code>sudo matron resume</code> does the same.</dd><dt>Check what needs attention</dt><dd><code>sudo matron status</code> checks services, the browser and certificate renewal. It gives the next command if something needs fixing.</dd><dt>Sign into the AI again</dt><dd><code>sudo matron login</code></dd><dt>Show your password and a fresh phone sign-in QR</dt><dd><code>sudo matron link</code> — use your private SSH terminal. Do not paste its output into chat.</dd><dt>Pair a revoked box again</dt><dd><code>sudo matron enroll</code></dd></dl>
+    <details><summary>Backups, restores and updates</summary>
+      <p><code>sudo matron backup</code> briefly stops Matron and saves a private archive. Copy it off the VPS to private storage. It contains credentials and conversation data. <strong>It excludes your work folders and AI sign-in sessions:</strong> back up your work separately and sign into your AI again after recovery.</p>
+      <p>To restore, first install Matron on the replacement VPS with the same sign-in name and first-box/add-box choice. Copy your archive there, then run <code>sudo matron restore /path/to/backup.tar.gz --replace-state</code>. This replaces its Matron state and reapplies the new server address. Keep the old server stopped when moving a box.</p>
+      <p>For a deliberate update, make a backup, then run <code>sudo matron update --backup /path/to/backup.tar.gz</code>. Repeating ordinary setup does not update Matron components. <a href="https://github.com/Matronhq/dev-boxer/blob/main/docs/starter-recovery.md">Full recovery guide and backup limits</a>.</p>
+    </details>
+    <details><summary>The HTTPS certificate needs attention</summary><p>Keep port 80 reachable in both the provider's firewall and the VPS. Check <code>sudo journalctl -u matron-certificate.service</code>, then run <code>sudo systemctl start matron-certificate.service</code> to retry. Never bypass a browser certificate warning. If the public IP changed, update it in <code>/opt/dev-boxer/config.yml</code> and resume setup.</p></details>
+    <p>Still stuck? <a href="/support/">Get support</a>. Share the step name and error, after removing passwords, sign-in codes and tokens.</p>
+  </section>
+  <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+</main>
+<footer class="site"><div class="wrap"><span>&copy; 2026 Matron</span><a href="/privacy/">Privacy policy</a><a href="/support/">Support</a></div></footer>
+<script src="./guide.js"></script>
+</body>
+</html>
